@@ -10,8 +10,11 @@
     <header>
       <nav>
         <!-------------- Navigation bar -------------->
-        <h1>Spray Station</h1> <!-- rubrik och namn på shoppen -->
-        <div class="menu-popout">
+        <a href="#">
+          <h1>Spray Station</h1> <!-- rubrik och namn på shoppen -->
+        </a>
+      
+        <div class="menu-popout"><!-- meny som öppnar sig, vänsterplacerad -->
           <ul class = "menu-container">
             <li><a class="menu-object" href="#">First page</a></li>
             <li><a class="menu-object" href="#">Products</a></li>
@@ -19,11 +22,16 @@
             <li><a class="menu-object" href="#">Contact</a></li>
           </ul>
         </div>
+
+        <div id="shopping-cart"><!-- Shoppingcart här med tillhörande knapp -->
+          <button class="cart-button"></button>
+        </div>
+
       </nav>
-    </header>    
+    </header>   
+
+    <!-- Fyra sidor: Första sidan, produkter, min shoppingvagn och kontakt till butik -->
     <div id="sprayContainer"></div>
-    <h2>Cart here</h2>
-    <div id="cart"></div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
