@@ -1,6 +1,7 @@
 @media (max-width: 768px) {
     body {
         background-color: lightblue;
+        font-family: 'Klee One', cursive;
 
         header {
             nav {
@@ -11,6 +12,7 @@
                 flex-direction: column;
                 align-items: center;
                 position: fixed;
+                top: 0;
 
                 .menu-popout {
                     flex-grow: 1;
@@ -25,7 +27,6 @@
 
                         .menu-object {
                             padding: 0 10px;
-                            
                         }
                     }
                 }
@@ -36,6 +37,7 @@
                 }
             }
         }
+
         .welcome-title {
             font-size: 3rem;
             margin-top: 2rem;
