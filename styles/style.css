@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media (max-width: 768px) {
   body {
     background-color: lightblue;
@@ -29,6 +30,12 @@
     display: flex;
     align-items: center;
   }
+  body .welcome-title {
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 10px rgb(0, 0, 0);
+    z-index: 1;
+  }
 }
 @media screen and (min-width: 768px) {
   body {
@@ -40,31 +47,55 @@
     background-color: lightpink;
   }
 }
-header nav {
+body {
+  background-color: lightpink;
+  margin: 0; /* Ta bort standardmarginalen för body */
+}
+body header nav {
   background-color: lightgreen;
   width: 100%;
   height: 8rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: fixed;
+  position: sticky; /* Håller navbaren klistrad vid toppen */
+  top: 0;
 }
-header nav .menu-popout {
+body header nav .menu-popout {
   flex-grow: 1;
   display: flex;
   justify-content: center;
 }
-header nav .menu-popout .menu-container {
+body header nav .menu-popout .menu-container {
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
-header nav .menu-popout .menu-container .menu-object {
+body header nav .menu-popout .menu-container .menu-object {
   padding: 0 10px;
 }
-header nav #shopping-cart {
+body header nav #shopping-cart {
   display: flex;
   align-items: center;
+}
+body main .home-section {
+  min-height: calc(100vh - 8rem); /* Justera höjden för att inkludera headerns höjd */
+  background-image: url("../assets/pictures/spraysky.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.welcome-title {
+  font-size: 8rem;
+  margin-top: 2rem;
+  text-shadow: 2px 2px 10px rgb(0, 0, 0);
+  z-index: 1;
 }/*# sourceMappingURL=style.css.map */

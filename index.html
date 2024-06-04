@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,41 +8,42 @@
     <meta name="keywords" content="spraycans, cans, can, spray, color, spraycolor, spraystation">
     <link rel="stylesheet" href="styles/style.css">
     <title>SprayStation</title>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <nav>
-        <!-------------- Navigation bar -------------->
-        <a href="#">
-          <h1>Spray Station</h1> <!-- rubrik och namn på shoppen -->
-        </a>
-      
-        <div class="menu-popout"><!-- meny som öppnar sig, vänsterplacerad -->
-          <ul class = "menu-container">
-            <li><a class="menu-object" href="#">First page</a></li>
-            <li><a class="menu-object" href="#">Products</a></li>
-            <li><a class="menu-object" href="#">My shopping cart</a></li>
-            <li><a class="menu-object" href="#">Contact</a></li>
-          </ul>
-        </div>
-
-        <div id="shopping-cart"><!-- Shoppingcart här med tillhörande knapp -->
-          <button class="cart-button"></button>
-        </div>
-
-      </nav>
-    </header>   
+      <!--------------------****** Navigationbar ***** -->
+        <nav>
+            <a href="#">
+                <h1>Spray Station</h1>
+            </a>
+            <div class="menu-popout">
+                <ul class="menu-container">
+                    <li><a class="menu-object" href="#">First page</a></li>
+                    <li><a class="menu-object" href="#">Products</a></li>
+                    <li><a class="menu-object" href="#">My shopping cart</a></li>
+                    <li><a class="menu-object" href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div id="shopping-cart">
+                <button class="cart-button"></button>
+            </div>
+        </nav>
+    </header> 
     <main>
-      <!----------------- Home  ----------------------->
-      <section class="home-section">
-        <div class="photo-container">
-          <div class="spray-photo"></div>
-          <h3 class="welcome-title">Welcome to SprayStation</h3>
-        </div>
-      </section>
+      <!--------------------******* Första sidan *****  -->
+        <section class="home-section">
+            <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
+        </section>
+        <!------------------******* SHOP SPRAYCANS  -->
+        <section class="spray-shop">
+          <div id="for-sale-container">
+            <h1>The SprayStation Shop</h1>
+            <p>Welcome, please feel free to buy your colors.</p>
+          </div>
+          <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
+        </section>
+<!-- Lägga in en knapp vid köp, eventuellt "PAY N' SPRAY" text. -->
     </main>
-    <!-- Fyra sidor: Första sidan, produkter, min shoppingvagn och kontakt till butik -->
-<!--     <div id="sprayContainer"></div> -->
     <script type="module" src="/main.js"></script>
-  </body>
+</body>
 </html>
