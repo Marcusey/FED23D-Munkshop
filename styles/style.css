@@ -47,9 +47,13 @@
     background-color: lightpink;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: lightpink;
-  margin: 0; /* Ta bort standardmarginalen för body */
+  margin: 0; /* Ta bort standardmarginalen för body- inga fula mellanrum */
 }
 body header nav {
   background-color: lightgreen;
@@ -81,7 +85,7 @@ body header nav #shopping-cart {
   align-items: center;
 }
 body main .home-section {
-  min-height: calc(100vh - 8rem); /* Justera höjden för att inkludera headerns höjd */
+  min-height: calc(100vh - 8rem);
   background-image: url("../assets/pictures/spraysky.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -91,6 +95,23 @@ body main .home-section {
   align-items: center;
   text-align: center;
   color: white;
+}
+body main .spray-section {
+  min-height: 100vh;
+}
+body main #sprayCansForSale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+body main #sprayCansForSale article {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: calc(33.333% - 40px);
+}
+body main #sprayCansForSale img {
+  max-width: 100%;
+  height: auto;
 }
 
 .welcome-title {
