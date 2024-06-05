@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @media (max-width: 768px) {
   body {
-    background-color: lightblue;
+    background-image: url(../assets/pictures/spraysky.jpg);
     font-family: "Klee One", cursive;
   }
   body header nav {
@@ -41,12 +41,12 @@
 }
 @media screen and (min-width: 768px) {
   body {
-    background-color: lightcoral;
+    background-image: url(../assets/pictures/spraysky.jpg);
   }
 }
 @media screen and (min-width: 1024px) {
   body {
-    background-color: lightpink;
+    background-image: url(../assets/pictures/spraysky.jpg);
   }
 }
 html {

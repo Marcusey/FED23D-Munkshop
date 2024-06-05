@@ -200,4 +200,3 @@ function updateCart() {
   }
   
   printSprayCans();
-  
