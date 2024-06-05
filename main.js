@@ -46,11 +46,11 @@ function initializeCart() {
   }
 }
 
-initializeCart();/* Kallar på funktion för att initialisera varukorg */
-addCartEventListener(); /* kallar på funktion för att lägga till händelselyssnare för att spara varukorg */
+initializeCart();
+addCartEventListener();
 
 function getCurrentDiscount() {
-  const now = new Date();
+  const now = new Date(); // Simulerad måndag 7 juni 2023
   const day = now.getDay();
   const hour = now.getHours();
 
@@ -71,9 +71,12 @@ function applyDiscounts() {
     } else {
       can.discountedPrice = can.price;
     }
-/*    Hantera bulk rabatt */
+    /* Hantera bulk rabatt */
     if (can.amount >= 10) {
       can.discountedPrice = can.discountedPrice * 0.90;
+      can.bulkDiscountApplied = true; // Lägg till flagga för bulk rabatt
+    } else {
+      can.bulkDiscountApplied = false; // Återställ flagga om mängden är under 10
     }
   });
 }
@@ -107,6 +110,7 @@ function updateCart() {
             <h3>${can.name}</h3>
             <div>Price per unit: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
             <div>Amount: <span>${can.amount}</span></div>
+            ${can.bulkDiscountApplied ? '<div>10% avdrag</div>' : ''}
           </div>
         </article>
       `;
@@ -115,13 +119,13 @@ function updateCart() {
     }
   });
 
-/*  Lägg till rabatterad total */
+  /* Lägg till rabatterad total */
   const discountInfo = getCurrentDiscount();
   if (discountInfo.type === 'discount') {
     cartContainer.innerHTML += `<div>Måndagsrabatt: 10% på hela beställningen</div>`;
   }
 
-/*    Fraktkostnad */
+  /* Fraktkostnad */
   let shippingCost = 0;
   if (totalItems > 15) {
     shippingCost = 0;
@@ -134,7 +138,7 @@ function updateCart() {
 
   cartContainer.innerHTML += `<div>Total: ${totalCost.toFixed(2)} kr</div>`;
 
-/*  Betalningsmetod */
+  /* Betalningsmetod */
   if (totalCost > 800) {
     cartContainer.innerHTML += `<div>Betalsätt: Faktura ej tillgänglig för order över 800 kr</div>`;
   } else {
@@ -143,60 +147,78 @@ function updateCart() {
         <select>
           <option value="card">Kort</option>
           <option value="invoice">Faktura</option>
-          </select>
-        </div>
-      `;
-    }
+        </select>
+      </div>
+    `;
   }
-  
-  function decreaseAmount(e) {
-    const index = Number(e.currentTarget.dataset.id);
-    const arrayIndex = sprayCans.findIndex(item => item.id === index);
-  
-    if (sprayCans[arrayIndex].amount > 0) {
-      sprayCans[arrayIndex].amount -= 1;
-    }
-    printSprayCans();
+}
+
+/* Timer för att rensa varukorgen efter 15 minuter */
+let inactivityTimer;
+
+function startInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  inactivityTimer = setTimeout(() => {
+    alert('Du var för långsam, din varukorg har rensats.');
+    sprayCans.forEach(can => can.amount = 0); // Rensa varukorgen
+    saveCartToStorage(sprayCans); // Uppdatera localStorage
+    printSprayCans(); // Uppdatera visningen
+  }, 15 * 60 * 1000); // 15 minuter
+}
+
+function decreaseAmount(e) {
+  const index = Number(e.currentTarget.dataset.id);
+  const arrayIndex = sprayCans.findIndex(item => item.id === index);
+
+  if (sprayCans[arrayIndex].amount > 0) {
+    sprayCans[arrayIndex].amount -= 1;
   }
-  
-  function increaseAmount(e) {
-    const index = Number(e.currentTarget.dataset.id);
-    const arrayIndex = sprayCans.findIndex(item => item.id === index);
-  
-    sprayCans[arrayIndex].amount += 1;
-    printSprayCans();
-  }
-  
-  function printSprayCans() {
-    sprayCansContainer.innerHTML = '';
-  
-    applyDiscounts();
-  
-    sprayCans.forEach(can => {
-      sprayCansContainer.innerHTML += `
-        <article>
-          <h3>${can.name}</h3>
-          <img src="${can.image.src}" alt="${can.image.alt}">
-          <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
-          <div>Amount: <span>${can.amount}</span></div>
-          <button class="minus" data-id="${can.id}">-</button>
-          <button class="plus" data-id="${can.id}">+</button>
-        </article>
-      `;
-    });
-  
-    const minusBtns = document.querySelectorAll('button.minus');
-    const plusBtns = document.querySelectorAll('button.plus');
-  
-    minusBtns.forEach(btn => {
-      btn.addEventListener('click', decreaseAmount);
-    });
-  
-    plusBtns.forEach(btn => {
-      btn.addEventListener('click', increaseAmount);
-    });
-  
-    updateCart();
-  }
-  
   printSprayCans();
+  startInactivityTimer(); // Starta om timern
+}
+
+function increaseAmount(e) {
+  const index = Number(e.currentTarget.dataset.id);
+  const arrayIndex = sprayCans.findIndex(item => item.id === index);
+
+  sprayCans[arrayIndex].amount += 1;
+  printSprayCans();
+  startInactivityTimer(); // Starta om timern
+}
+
+function printSprayCans() {
+  sprayCansContainer.innerHTML = '';
+
+  applyDiscounts();
+
+  sprayCans.forEach(can => {
+    sprayCansContainer.innerHTML += `
+      <article>
+        <h3>${can.name}</h3>
+        <img src="${can.image.src}" alt="${can.image.alt}">
+        <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
+        <div>Amount: <span>${can.amount}</span></div>
+        <button class="minus" data-id="${can.id}">-</button>
+        <button class="plus" data-id="${can.id}">+</button>
+      </article>
+    `;
+  });
+
+  const minusBtns = document.querySelectorAll('button.minus');
+  const plusBtns = document.querySelectorAll('button.plus');
+
+  minusBtns.forEach(btn => {
+    btn.addEventListener('click', decreaseAmount);
+  });
+
+  plusBtns.forEach(btn => {
+    btn.addEventListener('click', increaseAmount);
+  });
+
+  updateCart();
+}
+
+initializeCart();
+addCartEventListener();
+printSprayCans();
+startInactivityTimer(); // Starta timern när sidan laddas
