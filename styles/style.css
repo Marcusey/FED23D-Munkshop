@@ -56,15 +56,22 @@ html {
 body {
   margin: 0; /* Ta bort standardmarginalen för body- inga fula mellanrum */
   font-family: "Klee One";
+  position: relative; /*  */
+}
+body header { /*  */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /*  */
 }
 body header nav {
   background-color: rgb(14, 63, 82);
   width: 100%;
-  height: 8rem;
+  height: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: sticky; /* Håller navbaren klistrad vid toppen */
+  position: fixed; /* Navbaren följer med vid scrollning */
   top: 0;
 }
 body header nav .menu-popout {
@@ -91,8 +98,16 @@ body header nav #shopping-cart {
   align-items: center;
 }
 
+main {
+  /*  */
+  /*      display: flex;
+          flex-direction: column;
+          align-items: center; */
+  /*  */
+  position: relative;
+}
 main .home-section {
-  min-height: calc(100vh - 8rem);
+  min-height: calc(100vh - 4rem);
   background-image: url("../assets/pictures/spraysky.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -105,19 +120,32 @@ main .home-section {
 }
 main .spray-section {
   min-height: 100vh;
+  background-color: rgb(29, 44, 50);
+  background-image: url("../assets/pictures/spraysky.jpg");
+  background-size: cover;
+  color: white;
+  padding: 10%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 main #sprayCansForSale {
+  background-color: white;
+  color: rgb(57, 56, 56);
+  border-radius: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
 }
 main #sprayCansForSale article {
-  border: 1px solid #ccc;
-  padding: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px;
   width: calc(33.333% - 40px);
 }
 main #sprayCansForSale img {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
 }
 
@@ -130,4 +158,55 @@ main #sprayCansForSale img {
 
 .menu-object a:visited {
   text-decoration: none;
+}
+
+.cart-section {
+  background-image: url("/assets/pictures/spraysky.jpg");
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+}
+.cart-section article.cart-item {
+  background-color: rgba(225, 225, 225, 0.2);
+  display: flex;
+  width: 40%;
+  margin: 2rem;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+}
+.cart-section article.cart-item img {
+  align-items: center;
+  max-width: 100px;
+  height: auto;
+  border-radius: 100px;
+}
+.cart-section article.cart-item h3 {
+  margin: 0;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+.cart-section .total {
+  margin-top: 20px;
+}
+.cart-section .total h3 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cart-item-details h3 {
+  margin: 0 0 10px 0;
 }/*# sourceMappingURL=style.css.map */
