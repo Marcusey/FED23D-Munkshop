@@ -56,13 +56,13 @@ html {
 body {
   margin: 0; /* Ta bort standardmarginalen för body- inga fula mellanrum */
   font-family: "Klee One";
-  position: relative; /*  */
+  position: relative;
 }
-body header { /*  */
+body header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; /*  */
+  z-index: 1000;
 }
 body header nav {
   background-color: rgb(14, 63, 82);
@@ -99,11 +99,6 @@ body header nav #shopping-cart {
 }
 
 main {
-  /*  */
-  /*      display: flex;
-          flex-direction: column;
-          align-items: center; */
-  /*  */
   position: relative;
 }
 main .home-section {
@@ -217,18 +212,73 @@ main #sprayCansForSale img {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  width: 60%;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Lägg till en subtil skugga för att lyfta fram formuläret */
+  background-color: #f8f9fa;
 }
 
 #customerDetails {
-  max-width: 400px; /* Justera maximal bredd efter behov */
+  max-width: 400px;
   width: 100%;
   text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#customerDetails h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input[type=text],
+.form-group input[type=number],
+.form-group input[type=tel],
+.form-group input[type=email] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0e3f52;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons button:disabled {
+  background-color: #bdc4ca;
+  cursor: not-allowed;
+}
+
+.buttons button:hover:not(:disabled) {
+  background-color: #003036;
 }
 
 #customerDetails form {
@@ -266,14 +316,15 @@ main #sprayCansForSale img {
 #contact-page {
   position: relative;
   min-height: 100vh;
+  background-image: url(/assets/pictures/spraysky.jpg);
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 #contact-content {
-  background-color: rgba(255, 255, 255, 0.4); /* Vit med opacity */
-  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   width: 30rem;
   color: white;
