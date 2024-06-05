@@ -218,6 +218,16 @@ function printSprayCans() {
   updateCart();
 }
 
+/* Återställ formuläret */
+function resetForm() {
+  const form = document.querySelector('form');
+  form.reset();
+}
+
+/* Lyssna på knappen för att återställa formuläret */
+const resetFormButton = document.querySelector('#resetForm');
+resetFormButton.addEventListener('click', resetForm);
+
 initializeCart();
 addCartEventListener();
 printSprayCans();
