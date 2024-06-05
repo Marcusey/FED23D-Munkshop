@@ -135,6 +135,7 @@ body {
         min-height: 100vh;
         width: 100%;
         background-size: cover;
+        color: white;
 
         article.cart-item {
             background-color: rgba(225, 225, 225, 0.2);
@@ -237,3 +238,42 @@ body {
     #customerDetails form input[type="button"]:hover {
         background-color: rgb(0, 41, 54);
     }
+
+    #contact-page {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #contact-content {
+        background-color: rgba(255, 255, 255, 0.4); /* Vit med opacity */
+        padding: 20px;
+        border-radius: 10px;
+        width: 30rem;
+        color: white;
+      }
+      
+      .contact-box {
+        text-align: center;
+      }
+      
+      .contact-box h1 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      
+      .contact-info {
+        margin-top: 20px;
+      }
+      
+      .contact-info p {
+        text-align: left;
+        margin: 5px 0;
+      }
+      
+      .contact-info a {
+        color: inherit;
+        text-decoration: none;
+      }
