@@ -300,4 +300,8 @@ main #sprayCansForSale img {
 .contact-info a {
   color: inherit;
   text-decoration: none;
+}
+
+.sortButtons {
+  margin: 20px;
 }/*# sourceMappingURL=style.css.map */

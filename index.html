@@ -40,6 +40,14 @@
           <div id="for-sale-container">
             <h1>The SprayStation Shop</h1>
             <p>Welcome, please feel free to buy your colors.</p>
+            <div class="sortButtons">
+              <button id="sortByRating">Sort by rating and see all colors</button>
+              <select id="sortByCategory">
+              <option value="light">Light Colors</option>
+              <option value="dark">Dark Colors</option>
+              <option value="pastel">Pastel Colors</option>
+            </div>
+        </select>
           </div>
           <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
@@ -106,18 +114,18 @@
                 <label>
                   Social Security Number:
                   <span class="errorField"></span>
-                  <input type="text" id="ssn" value="19830501-7274">
+                  <input type="text" id="ssn" value="">
                 </label>
               </div>
               <label>
                 Discount code:
-                <input id="discountCode" type="text" value="a_damn_fine-cup_of-coffee">
+                <input id="discountCode" type="text" value="">
               </label>
               <label>
-                <input type="checkbox" id="gdprCheck"> You can sell my personal details
+                <input type="checkbox" id="gdprCheck"> It's OKAY with GDPR!
               </label>
               <label>
-                <input type="checkbox" id="newsletter" checked> Subscribe me to donut news!
+                <input type="checkbox" id="newsletter" checked> I want news from Spray Station!
               </label>
               <input type="button" id="resetForm" value="Cancel Order">
               <input type="button" id="sendForm" value="Place Order" disabled>

@@ -4,16 +4,17 @@ const sprayCansContainer = document.querySelector('#sprayCansForSale');
 const cartContainer = document.querySelector('#cartSection');
 
 const sprayCans = [
-  { id: 1, name: 'CanCan in Sunset', price: 100, image: { src: '/assets/pictures/orange.jpg', alt: 'Spray Can 1 Image' }, amount: 0 },
-  { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: { src: 'assets/pictures/yellow.jpg', alt: 'Spray Can 2 Image' }, amount: 0 },
-  { id: 3, name: 'Red Rush ', price: 140, image: { src: 'assets/pictures/red.jpg', alt: 'Spray Can 3 Image' }, amount: 0 },
-  { id: 4, name: 'Pink that Party', price: 110, image: { src: 'assets/pictures/pink.jpg', alt: 'Spray Can 4 Image' }, amount: 0 },
-  { id: 5, name: 'Bloom Fusia, bloom', price: 110, image: { src: 'assets/pictures/fusia.jpg', alt: 'Spray Can 5 Image' }, amount: 0 },
-  { id: 6, name: 'Cast a spell', price: 100, image: { src: 'assets/pictures/chrome.jpg', alt: 'Spray Can 6 Image' }, amount: 0 },
-  { id: 7, name: 'Blue Lagoon', price: 140, image: { src: 'assets/pictures/blue.jpg', alt: 'Spray Can 7 Image' }, amount: 0 },
-  { id: 8, name: 'Blue Velvet', price: 130, image: { src: 'assets/pictures/darkblue.jpg', alt: 'Spray Can 8 Image' }, amount: 0 },
-  { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/pictures/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0 },
+  { id: 1, name: 'CanCan in Sunset', price: 100, image: { src: '/assets/pictures/orange.jpg', alt: 'Spray Can 1 Image' }, amount: 0, stars: 4, category: 'dark' },
+  { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: { src: 'assets/pictures/yellow.jpg', alt: 'Spray Can 2 Image' }, amount: 0, stars: 3.5, category: 'light' },
+  { id: 3, name: 'Red Rush ', price: 140, image: { src: 'assets/pictures/red.jpg', alt: 'Spray Can 3 Image' }, amount: 0, stars: 5, category: 'light' },
+  { id: 4, name: 'Pink that Party', price: 110, image: { src: 'assets/pictures/pink.jpg', alt: 'Spray Can 4 Image' }, amount: 0, stars: 4.5, category: 'pastel' },
+  { id: 5, name: 'Bloom Fusia, bloom', price: 110, image: { src: 'assets/pictures/fusia.jpg', alt: 'Spray Can 5 Image' }, amount: 0, stars: 3, category: 'light' },
+  { id: 6, name: 'Cast a spell', price: 100, image: { src: 'assets/pictures/chrome.jpg', alt: 'Spray Can 6 Image' }, amount: 0, stars: 4, category: 'light' },
+  { id: 7, name: 'Blue Lagoon', price: 140, image: { src: 'assets/pictures/blue.jpg', alt: 'Spray Can 7 Image' }, amount: 0, stars: 4.5, category: 'light' },
+  { id: 8, name: 'Blue Velvet', price: 130, image: { src: 'assets/pictures/darkblue.jpg', alt: 'Spray Can 8 Image' }, amount: 0, stars: 3.5, category: 'dark' },
+  { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/pictures/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0, stars: 4, category: 'dark' },
 ];
+
 
 /* Hämta varukorgen från localStorage */
 function getCartFromStorage() {
@@ -48,6 +49,43 @@ function initializeCart() {
 
 initializeCart();
 addCartEventListener();
+
+// Funktion för att sortera produkter efter rating
+function sortByRating() {
+  sprayCans.sort((a, b) => b.stars - a.stars);
+  printSprayCans(); // Uppdatera visningen efter sortering
+}
+
+// Funktion för att sortera produkter efter kategori
+function sortByCategory(category) {
+  const filteredCans = sprayCans.filter(can => can.category === category);
+  sprayCansContainer.innerHTML = ''; // Rensa container innan uppdatering
+  filteredCans.forEach(can => {
+    sprayCansContainer.innerHTML += `
+      <article>
+        <h3>${can.name}</h3>
+        <img src="${can.image.src}" alt="${can.image.alt}">
+        <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
+        <div>Amount: <span>${can.amount}</span></div>
+        <button class="minus" data-id="${can.id}">-</button>
+        <button class="plus" data-id="${can.id}">+</button>
+      </article>
+    `;
+  });
+  // Lägg till händelselyssnare för knapparna
+  addEventListenersToButtons();
+}
+
+// Lyssnare för knappar för att sortera produkter
+const sortByRatingButton = document.querySelector('#sortByRating');
+sortByRatingButton.addEventListener('click', sortByRating);
+
+const sortByCategoryButton = document.querySelector('#sortByCategory');
+sortByCategoryButton.addEventListener('change', (event) => {
+  const selectedCategory = event.target.value;
+  sortByCategory(selectedCategory);
+});
+
 
 function getCurrentDiscount() {
   const now = new Date(); // Simulerad måndag 7 juni 2023
