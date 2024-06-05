@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-      <!--------------------****** Navigationbar ***** -->
+      <!-- ******************* Navigationbar ******************* -->
         <nav>
             <div class="menu-popout">
                 <ul class="menu-container">
@@ -28,13 +28,13 @@
         </nav>
     </header> 
     <main>
-      <!--------------------******* Första sidan *****  -->
+      <!-- ******************* First page ******************* -->
       <div class="wrap">
         <section id="home-section" class="home-section">
             <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
         </section>
       </div>
-        <!------------------******* SHOP SPRAYCANS ***** -->
+      <!-- ******************* SHOP SPRAYCANS ******************* -->
         <section id="spray-section" class="spray-section">
           <div id="for-sale-container">
             <h1>The SprayStation Shop</h1>
@@ -42,11 +42,87 @@
           </div>
           <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
-        <!----------------******* SHOPPING CART ****** -->
+      <!-- ******************* SHOPPING CART ******************* -->
         <section class="cart-section" id="cartSection">
           <h1>Shoppingcart</h1>
         </section>
-<!-- Lägga in en knapp vid köp, eventuellt "PAY N' SPRAY" text. -->
+          <!-- Beginning of the new form -->
+          <section class="customer-details" id="customers-details">
+          <div id="customerDetails">
+            <h2>Customer Details</h2>
+            <form>
+              <label>First name:
+                <span class="errorField"></span>
+                <input type="text" id="firstName">
+              </label>
+              <label>Last name:
+                <span class="errorField"></span>
+                <input type="text" id="lastName">
+              </label>
+              <label>Street:
+                <span class="errorField"></span>
+                <input type="text" id="street">
+              </label>
+              <label>Zip code:
+                <span class="errorField"></span>
+                <input type="number" id="zipcode">
+              </label>
+              <label>City:
+                <span class="errorField"></span>
+                <input type="text" id="city">
+              </label>
+              <label>Door code:
+                <span class="errorField"></span>
+                <input type="text" id="doorCode">
+              </label>
+              <label>Phone:
+                <span class="errorField"></span>
+                <input type="tel" id="mobile">
+              </label>
+              <label>E-mail:
+                <span class="errorField"></span>
+                <input type="email" id="email">
+              </label>
+              <div>
+                <label>
+                  <input type="radio" name="paymentOption" value="card"> Credit Card
+                </label>
+                <label>
+                  <input type="radio" name="paymentOption" value="invoice"> Invoice
+                </label>
+              </div>
+              <div id="creditCardDetails" class="hidden">
+                <label>Card number:
+                  <input type="number" value="1234 5678 9012 3456 6789">
+                </label>
+                <label>
+                  Expiry Date (MM/YY):
+                  <input type="number" id="expiryMonth" value="01">
+                  <input type="number" id="expiryYear" value="28">
+                </label>
+              </div>
+              <div id="invoiceDetails" class="hidden">
+                <label>
+                  Social Security Number:
+                  <span class="errorField"></span>
+                  <input type="text" id="ssn" value="19830501-7274">
+                </label>
+              </div>
+              <label>
+                Discount code:
+                <input id="discountCode" type="text" value="a_damn_fine-cup_of-coffee">
+              </label>
+              <label>
+                <input type="checkbox" id="gdprCheck"> You can sell my personal details
+              </label>
+              <label>
+                <input type="checkbox" id="newsletter" checked> Subscribe me to donut news!
+              </label>
+              <input type="button" id="resetForm" value="Cancel Order">
+              <input type="button" id="sendForm" value="Place Order" disabled>
+            </form>
+          </div>
+          <!-- End of the new form -->
     </main>
     <script type="module" src="/main.js"></script>
 </body>

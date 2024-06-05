@@ -15,6 +15,40 @@ const sprayCans = [
   { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/pictures/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0 },
 ];
 
+/* Hämta varukorgen från localStorage */
+function getCartFromStorage() {
+  const cart = localStorage.getItem('cart');
+  return cart ? JSON.parse(cart) : [];
+}
+
+/* Spara varukorgen till localStorage */
+function saveCartToStorage(cart) {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+/* Lägg till en händelselyssnare för att spara varukorgen varje gång den uppdateras */
+function addCartEventListener() {
+  window.addEventListener('beforeunload', () => {
+    saveCartToStorage(sprayCans);
+  });
+}
+
+/* Initialiserar varukorgen */
+function initializeCart() {
+  const savedCart = getCartFromStorage();
+  if (savedCart.length > 0) {
+    sprayCans.forEach(can => {
+      const savedItem = savedCart.find(item => item.id === can.id);
+      if (savedItem) {
+        can.amount = savedItem.amount;
+      }
+    });
+  }
+}
+
+initializeCart();/* Kallar på funktion för att initialisera varukorg */
+addCartEventListener(); /* kallar på funktion för att lägga till händelselyssnare för att spara varukorg */
+
 function getCurrentDiscount() {
   const now = new Date();
   const day = now.getDay();
@@ -109,60 +143,61 @@ function updateCart() {
         <select>
           <option value="card">Kort</option>
           <option value="invoice">Faktura</option>
-        </select>
-      </div>
-    `;
+          </select>
+        </div>
+      `;
+    }
   }
-}
-
-function decreaseAmount(e) {
-  const index = Number(e.currentTarget.dataset.id);
-  const arrayIndex = sprayCans.findIndex(item => item.id === index);
-
-  if (sprayCans[arrayIndex].amount > 0) {
-    sprayCans[arrayIndex].amount -= 1;
+  
+  function decreaseAmount(e) {
+    const index = Number(e.currentTarget.dataset.id);
+    const arrayIndex = sprayCans.findIndex(item => item.id === index);
+  
+    if (sprayCans[arrayIndex].amount > 0) {
+      sprayCans[arrayIndex].amount -= 1;
+    }
+    printSprayCans();
   }
+  
+  function increaseAmount(e) {
+    const index = Number(e.currentTarget.dataset.id);
+    const arrayIndex = sprayCans.findIndex(item => item.id === index);
+  
+    sprayCans[arrayIndex].amount += 1;
+    printSprayCans();
+  }
+  
+  function printSprayCans() {
+    sprayCansContainer.innerHTML = '';
+  
+    applyDiscounts();
+  
+    sprayCans.forEach(can => {
+      sprayCansContainer.innerHTML += `
+        <article>
+          <h3>${can.name}</h3>
+          <img src="${can.image.src}" alt="${can.image.alt}">
+          <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
+          <div>Amount: <span>${can.amount}</span></div>
+          <button class="minus" data-id="${can.id}">-</button>
+          <button class="plus" data-id="${can.id}">+</button>
+        </article>
+      `;
+    });
+  
+    const minusBtns = document.querySelectorAll('button.minus');
+    const plusBtns = document.querySelectorAll('button.plus');
+  
+    minusBtns.forEach(btn => {
+      btn.addEventListener('click', decreaseAmount);
+    });
+  
+    plusBtns.forEach(btn => {
+      btn.addEventListener('click', increaseAmount);
+    });
+  
+    updateCart();
+  }
+  
   printSprayCans();
-}
-
-function increaseAmount(e) {
-  const index = Number(e.currentTarget.dataset.id);
-  const arrayIndex = sprayCans.findIndex(item => item.id === index);
-
-  sprayCans[arrayIndex].amount += 1;
-  printSprayCans();
-}
-
-function printSprayCans() {
-  sprayCansContainer.innerHTML = '';
-
-  applyDiscounts();
-
-  sprayCans.forEach(can => {
-    sprayCansContainer.innerHTML += `
-      <article>
-        <h3>${can.name}</h3>
-        <img src="${can.image.src}" alt="${can.image.alt}">
-        <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
-        <div>Amount: <span>${can.amount}</span></div>
-        <button class="minus" data-id="${can.id}">-</button>
-        <button class="plus" data-id="${can.id}">+</button>
-      </article>
-    `;
-  });
-
-  const minusBtns = document.querySelectorAll('button.minus');
-  const plusBtns = document.querySelectorAll('button.plus');
-
-  minusBtns.forEach(btn => {
-    btn.addEventListener('click', decreaseAmount);
-  });
-
-  plusBtns.forEach(btn => {
-    btn.addEventListener('click', increaseAmount);
-  });
-
-  updateCart();
-}
-
-printSprayCans();
+  
