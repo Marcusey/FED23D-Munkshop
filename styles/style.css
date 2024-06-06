@@ -212,25 +212,29 @@ main #sprayCansForSale img {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-image: url(/assets/pictures/spraysky.jpg);
 }
 
 #customerDetails {
-  max-width: 400px;
+  margin: 5rem;
+  max-width: 500px;
   width: 100%;
   text-align: center;
   padding: 20px;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #28556f;
+  color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #customerDetails h2 {
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  padding: 0.2rem;
 }
 
 .form-group label {
@@ -243,16 +247,18 @@ main #sprayCansForSale img {
 .form-group input[type=number],
 .form-group input[type=tel],
 .form-group input[type=email] {
-  width: 100%;
+  width: 80%;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 5px solid #ccc;
 }
 
 .radio-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: 5px;
+  justify-content: space-around;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
 }
 
 .hidden {
@@ -273,7 +279,7 @@ main #sprayCansForSale img {
 }
 
 .buttons button:disabled {
-  background-color: #bdc4ca;
+  background-color: #cacdd0;
   cursor: not-allowed;
 }
 
