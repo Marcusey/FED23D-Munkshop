@@ -78,7 +78,18 @@ function sortByCategory(category) {
   addEventListenersToButtons();
 }
 
-// Lyssnare för knappar för att sortera produkter
+function sortByName() {
+  sprayCans.sort((a, b) => a.name.localeCompare(b.name));
+  printSprayCans(); // Uppdatera visningen efter sortering
+}
+
+//sortera produkter efter pris
+function sortByPrice() {
+  sprayCans.sort((a, b) => a.price - b.price);
+  printSprayCans(); // Uppdatera visningen efter sortering
+}
+
+//sortera produkter
 const sortByRatingButton = document.querySelector('#sortByRating');
 sortByRatingButton.addEventListener('click', sortByRating);
 
@@ -88,6 +99,13 @@ sortByCategoryButton.addEventListener('change', (event) => {
   sortByCategory(selectedCategory);
 });
 
+//lyssnare för att sortera efter namn
+const sortByNameButton = document.querySelector('#sortByName');
+sortByNameButton.addEventListener('click', sortByName);
+
+//lyssnare för att sortera efter pris
+const sortByPriceButton = document.querySelector('#sortByPrice');
+sortByPriceButton.addEventListener('click', sortByPrice);
 
 function getCurrentDiscount() {
   const now = new Date(); // Simulerad måndag 7 juni 2023
@@ -258,6 +276,8 @@ function printSprayCans() {
   updateCart();
 }
 
+
+
 /* Återställ formuläret */
 function resetForm() {
   const form = document.querySelector('form');
@@ -267,6 +287,8 @@ function resetForm() {
 /* Lyssna på knappen för att återställa formuläret */
 const resetFormButton = document.querySelector('#resetForm');
 resetFormButton.addEventListener('click', resetForm);
+
+
 
 initializeCart();
 addCartEventListener();

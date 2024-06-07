@@ -119,7 +119,7 @@ main .spray-section {
   background-image: url("../assets/pictures/spraysky.jpg");
   background-size: cover;
   color: white;
-  padding: 10%;
+  padding: 0.5rem;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -347,6 +347,7 @@ main #sprayCansForSale img {
 
 .contact-info {
   margin-top: 20px;
+  padding: 1rem;
 }
 
 .contact-info p {
@@ -361,4 +362,33 @@ main #sprayCansForSale img {
 
 .sortButtons {
   margin: 20px;
+}
+
+.confirmation-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border: 2px solid black;
+  z-index: 1000;
+}
+
+.confirmation-heading {
+  margin-top: 0;
+}
+
+.confirmation-button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.confirmation-button:hover {
+  background: #0056b3;
 }/*# sourceMappingURL=style.css.map */

@@ -36,18 +36,23 @@
         </section>
       </div>
       <!-- ******************* SHOP SPRAYCANS ******************* -->
-        <section id="spray-section" class="spray-section">
-          <div id="for-sale-container">
-            <h1>The SprayStation Shop</h1>
-            <p>Welcome, please feel free to buy your colors.</p>
-            <div class="sortButtons">
-              <button id="sortByRating">Sort by rating and see all colors</button>
-              <select id="sortByCategory">
+      <section id="spray-section" class="spray-section">
+        <div id="frame-shop">
+        <div id="for-sale-container">
+          <h1>The SprayStation Shop</h1>
+          <p>Welcome, please feel free to buy your colors.</p>
+          <div class="sortButtons">
+            <button id="sortByRating">Sort by rating and see all colors</button>
+            <button id="sortByName">Sort by Name</button>
+            <button id="sortByPrice">Sort by Price</button>
+            <select id="sortByCategory">
               <option value="light">Light Colors</option>
               <option value="dark">Dark Colors</option>
               <option value="pastel">Pastel Colors</option>
-            </div>
-        </select>
+            </select>
+          </div>
+        </div>
+        </div>    
           </div>
           <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
@@ -95,8 +100,8 @@
                     <div class="form-group">
                         <label>Payment Option:</label>
                         <div class="radio-buttons">
-                            <label><input type="radio" name="paymentOption" value="card" required> Credit Card</label>
-                            <label><input type="radio" name="paymentOption" value="invoice" required> Invoice</label>
+                            <label><input type="radio" name="paymentOption" value="card"> Credit Card</label>
+                            <label><input type="radio" name="paymentOption" value="invoice"> Invoice</label>
                         </div>
                     </div>
                     <div id="creditCardDetails" class="hidden">
