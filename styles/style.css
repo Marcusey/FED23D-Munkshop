@@ -391,4 +391,11 @@ main #sprayCansForSale img {
 
 .confirmation-button:hover {
   background: #0056b3;
+}
+
+#footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #0e3f52;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
