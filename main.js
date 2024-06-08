@@ -288,8 +288,6 @@ function resetForm() {
 const resetFormButton = document.querySelector('#resetForm');
 resetFormButton.addEventListener('click', resetForm);
 
-
-
 initializeCart();
 addCartEventListener();
 printSprayCans();

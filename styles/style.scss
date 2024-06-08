@@ -83,21 +83,23 @@ body {
             background-image: url('../assets/pictures/spraysky.jpg');
             background-size: cover;
             color: white;
-            padding: 0.5rem;
-            justify-content: center;
+            display: flex;
+            flex-wrap:wrap;
+            justify-content:space-around;
             text-align: center;
-            align-items: center;
-
+            padding: 2rem;
         }
 
         #sprayCansForSale {
-            background-color: white;
-            color: rgb(57, 56, 56);
+          background-color: white;
+            color: rgb(0, 0, 0);
             border-radius: 20px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: 15px;
+            width: 50%;
+            padding: 1rem;
         }
 
         #sprayCansForSale article {
@@ -124,13 +126,22 @@ body {
         text-decoration: none;
     }
 
+    #frame-shop {
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+
+    }
     
     .cart-section {
         background-image: url('/assets/pictures/spraysky.jpg');
         min-height: 100vh;
-        width: 100%;
         background-size: cover;
-        color: white;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 2rem;
+
 
         article.cart-item {
             background-color: rgba(225, 225, 225, 0.2);
