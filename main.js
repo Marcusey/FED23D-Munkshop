@@ -3,6 +3,10 @@ import './styles/style.scss';
 const sprayCansContainer = document.querySelector('#sprayCansForSale');
 const cartContainer = document.querySelector('#cartSection');
 
+document.addEventListener('DOMContentLoaded', () => {
+  printSprayCans();
+});
+
 const sprayCans = [
   { id: 1, name: 'CanCan in Sunset', price: 100, image: { src: '/assets/pictures/orange.jpg', alt: 'Spray Can 1 Image' }, amount: 0, stars: 4, category: 'light' },
   { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: { src: 'assets/pictures/yellow.jpg', alt: 'Spray Can 2 Image' }, amount: 0, stars: 3.5, category: 'light' },
@@ -152,7 +156,6 @@ function calculateTotal() {
 
   return total;
 }
-
 function updateCart() {
   cartContainer.innerHTML = '<h1>Shoppingcart</h1>';
 
@@ -176,6 +179,10 @@ function updateCart() {
       totalCost += can.discountedPrice * can.amount;
     }
   });
+
+  // Uppdatera antalet produkter på ikonen
+  document.querySelector('.cart-count').innerText = totalItems;
+}
 
   /* Lägg till rabatterad total */
   const discountInfo = getCurrentDiscount();
@@ -209,7 +216,7 @@ function updateCart() {
       </div>
     `;
   }
-}
+
 
 /* Timer för att rensa varukorgen efter 15 minuter */
 let inactivityTimer;
@@ -224,6 +231,8 @@ function startInactivityTimer() {
   }, 15 * 60 * 1000); // 15 minuter
 }
 
+
+// Se till att anropa updateCart efter att du har ökat eller minskat antalet produkter
 function decreaseAmount(e) {
   const index = Number(e.currentTarget.dataset.id);
   const arrayIndex = sprayCans.findIndex(item => item.id === index);
@@ -287,6 +296,7 @@ function resetForm() {
 /* Lyssna på knappen för att återställa formuläret */
 const resetFormButton = document.querySelector('#resetForm');
 resetFormButton.addEventListener('click', resetForm);
+
 
 initializeCart();
 addCartEventListener();
