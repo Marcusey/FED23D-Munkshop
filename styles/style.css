@@ -1,42 +1,231 @@
 @charset "UTF-8";
 @media (max-width: 768px) {
   body {
-    background-image: url(../assets/pictures/spraysky.jpg);
-    font-family: "Klee One", cursive;
+    margin: 0;
+    font-family: "Klee One";
+    position: relative;
+    color: white;
+    background-color: #0e3f52;
   }
-  body header nav {
-    background-color: lightgreen;
-    width: 100%;
-    height: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  body header {
     position: fixed;
     top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #0e3f52;
   }
-  body header nav .menu-popout {
-    flex-grow: 1;
+  body header nav {
+    height: 4rem;
     display: flex;
+    align-items: center;
     justify-content: center;
   }
-  body header nav .menu-popout .menu-container {
+  body header nav .menu-popout {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  body header nav .menu-popout .menu-container {
+    list-style: none;
+    display: flex;
     justify-content: space-around;
     width: 100%;
   }
   body header nav .menu-popout .menu-container .menu-object {
     padding: 0 10px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
   }
   body header nav #shopping-cart {
+    border: none;
+    background-color: blue;
+    margin-left: auto;
     display: flex;
     align-items: center;
+  }
+  body main {
+    padding-top: 4rem;
+  }
+  body main .home-section, body main .spray-section, body main .cart-section, body main .customer-details, body main #contact-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("../assets/pictures/spraysky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }
+  body main .home-section {
+    background-position: center;
+  }
+  body main .spray-section {
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+  body main #sprayCansForSale {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  body main #sprayCansForSale article {
+    text-transform: uppercase;
+    padding: 10px;
+    width: 100%;
+  }
+  body main #sprayCansForSale img {
+    max-width: 80%;
+    height: auto;
   }
   body .welcome-title {
     font-size: 3rem;
     margin-top: 2rem;
-    text-shadow: 2px 2px 10px rgb(0, 0, 0);
-    z-index: 1;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  body #frame-shop {
+    padding: 2rem;
+  }
+  body .cart-section {
+    flex-direction: column;
+  }
+  body .cart-section article.cart-item {
+    background-color: rgba(225, 225, 225, 0.2);
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0.3rem;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  body .cart-section article.cart-item img {
+    max-width: 100px;
+    border-radius: 100px;
+  }
+  body .cart-section article.cart-item h3 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  body .cart-section .total h3 {
+    font-size: 1.5em;
+  }
+  body .customer-details #customerDetails {
+    margin: 2rem;
+    max-width: 90%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #28556f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  body .customer-details #customerDetails h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  body .customer-details #customerDetails .form-group {
+    margin-bottom: 10px;
+    padding: 0.2rem;
+  }
+  body .customer-details #customerDetails .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  body .customer-details #customerDetails .form-group input[type=text],
+  body .customer-details #customerDetails .form-group input[type=number],
+  body .customer-details #customerDetails .form-group input[type=tel],
+  body .customer-details #customerDetails .form-group input[type=email] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+  }
+  body .customer-details #customerDetails .radio-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  body .customer-details #customerDetails .hidden {
+    display: none;
+  }
+  body .customer-details #customerDetails .buttons {
+    margin-top: 20px;
+  }
+  body .customer-details #customerDetails .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0e3f52;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  body .customer-details #customerDetails .buttons button:disabled {
+    background-color: #cacdd0;
+    cursor: not-allowed;
+  }
+  body .customer-details #customerDetails .buttons button:hover:not(:disabled) {
+    background-color: #003036;
+  }
+  body #contact-page {
+    justify-content: center;
+  }
+  body #contact-page #contact-content {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 30rem;
+    padding: 1rem;
+  }
+  body #contact-page #contact-content .contact-box {
+    text-align: center;
+  }
+  body #contact-page #contact-content .contact-box h1 {
+    margin-bottom: 10px;
+  }
+  body #contact-page #contact-content .contact-box .contact-info {
+    margin-top: 20px;
+  }
+  body #contact-page #contact-content .contact-box .contact-info p {
+    text-align: left;
+    margin: 5px 0;
+  }
+  body #contact-page #contact-content .contact-box .contact-info a {
+    color: inherit;
+    text-decoration: none;
+  }
+  body .sortButtons {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  body .sortButtons button, body .sortButtons select {
+    background-color: #0e3f52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+  }
+  body .sortButtons button:hover, body .sortButtons select:hover {
+    background-color: #28556f;
+  }
+  body #footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0e3f52;
   }
 }
 @media screen and (min-width: 768px) {
