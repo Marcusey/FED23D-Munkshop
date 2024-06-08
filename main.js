@@ -1,11 +1,14 @@
 import './styles/style.scss';
 
-const sprayCansContainer = document.querySelector('#sprayCansForSale');
-const cartContainer = document.querySelector('#cartSection');
-
 document.addEventListener('DOMContentLoaded', () => {
   printSprayCans();
+  initializeCart();
+  addCartEventListener();
+  startInactivityTimer();
 });
+
+const sprayCansContainer = document.querySelector('#sprayCansForSale');
+const cartContainer = document.querySelector('#cartSection');
 
 const sprayCans = [
   { id: 1, name: 'CanCan in Sunset', price: 100, image: { src: '/assets/pictures/orange.jpg', alt: 'Spray Can 1 Image' }, amount: 0, stars: 4, category: 'light' },
@@ -53,16 +56,13 @@ function initializeCart() {
   }
 }
 
-initializeCart();
-addCartEventListener();
-
-// Funktion för att sortera produkter efter rating
+//Funktion för att sortera produkter efter rating
 function sortByRating() {
   sprayCans.sort((a, b) => b.stars - a.stars);
   printSprayCans(); // Uppdatera visningen efter sortering
 }
 
-// Funktion för att sortera produkter efter kategori
+//Funktion för att sortera produkter efter kategori
 function sortByCategory(category) {
   const filteredCans = sprayCans.filter(can => can.category === category);
   sprayCansContainer.innerHTML = ''; // Rensa container innan uppdatering
@@ -78,19 +78,19 @@ function sortByCategory(category) {
       </article>
     `;
   });
-  // Lägg till händelselyssnare för knapparna
+  //Lägg till händelselyssnare för knapparna
   addEventListenersToButtons();
 }
 
 function sortByName() {
   sprayCans.sort((a, b) => a.name.localeCompare(b.name));
-  printSprayCans(); // Uppdatera visningen efter sortering
+  printSprayCans();
 }
 
 //sortera produkter efter pris
 function sortByPrice() {
   sprayCans.sort((a, b) => a.price - b.price);
-  printSprayCans(); // Uppdatera visningen efter sortering
+  printSprayCans();
 }
 
 //sortera produkter
@@ -112,7 +112,7 @@ const sortByPriceButton = document.querySelector('#sortByPrice');
 sortByPriceButton.addEventListener('click', sortByPrice);
 
 function getCurrentDiscount() {
-  const now = new Date(); // Simulerad måndag 7 juni 2023
+  const now = new Date();
   const day = now.getDay();
   const hour = now.getHours();
 
@@ -133,12 +133,12 @@ function applyDiscounts() {
     } else {
       can.discountedPrice = can.price;
     }
-    /* Hantera bulk rabatt */
+    /* Hantera mängd-rabatt */
     if (can.amount >= 10) {
       can.discountedPrice = can.discountedPrice * 0.90;
-      can.bulkDiscountApplied = true; // Lägg till flagga för bulk rabatt
+      can.bulkDiscountApplied = true; //Lägg till flagga för mängd-rabatt
     } else {
-      can.bulkDiscountApplied = false; // Återställ flagga om mängden är under 10
+      can.bulkDiscountApplied = false; //Återställer
     }
   });
 }
@@ -156,6 +156,7 @@ function calculateTotal() {
 
   return total;
 }
+
 function updateCart() {
   cartContainer.innerHTML = '<h1>Shoppingcart</h1>';
 
@@ -180,9 +181,8 @@ function updateCart() {
     }
   });
 
-  // Uppdatera antalet produkter på ikonen
+  //Uppdatera antalet produkter på shoppingcart ikonen
   document.querySelector('.cart-count').innerText = totalItems;
-}
 
   /* Lägg till rabatterad total */
   const discountInfo = getCurrentDiscount();
@@ -216,7 +216,7 @@ function updateCart() {
       </div>
     `;
   }
-
+}
 
 /* Timer för att rensa varukorgen efter 15 minuter */
 let inactivityTimer;
@@ -231,8 +231,6 @@ function startInactivityTimer() {
   }, 15 * 60 * 1000); // 15 minuter
 }
 
-
-// Se till att anropa updateCart efter att du har ökat eller minskat antalet produkter
 function decreaseAmount(e) {
   const index = Number(e.currentTarget.dataset.id);
   const arrayIndex = sprayCans.findIndex(item => item.id === index);
@@ -241,7 +239,7 @@ function decreaseAmount(e) {
     sprayCans[arrayIndex].amount -= 1;
   }
   printSprayCans();
-  startInactivityTimer(); // Starta om timern
+  startInactivityTimer();
 }
 
 function increaseAmount(e) {
@@ -250,7 +248,7 @@ function increaseAmount(e) {
 
   sprayCans[arrayIndex].amount += 1;
   printSprayCans();
-  startInactivityTimer(); // Starta om timern
+  startInactivityTimer();
 }
 
 function printSprayCans() {
@@ -285,8 +283,6 @@ function printSprayCans() {
   updateCart();
 }
 
-
-
 /* Återställ formuläret */
 function resetForm() {
   const form = document.querySelector('form');
@@ -296,9 +292,3 @@ function resetForm() {
 /* Lyssna på knappen för att återställa formuläret */
 const resetFormButton = document.querySelector('#resetForm');
 resetFormButton.addEventListener('click', resetForm);
-
-
-initializeCart();
-addCartEventListener();
-printSprayCans();
-startInactivityTimer(); // Starta timern när sidan laddas
