@@ -172,7 +172,7 @@ function updateCart() {
             <h3>${can.name}</h3>
             <div>Price per unit: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
             <div>Amount: <span>${can.amount}</span></div>
-            ${can.bulkDiscountApplied ? '<div>10% avdrag</div>' : ''}
+            ${can.bulkDiscountApplied ? '<div>10% discount!</div>' : ''}
           </div>
         </article>
       `;
@@ -187,7 +187,7 @@ function updateCart() {
   /* Lägg till rabatterad total */
   const discountInfo = getCurrentDiscount();
   if (discountInfo.type === 'discount') {
-    cartContainer.innerHTML += `<div>Måndagsrabatt: 10% på hela beställningen</div>`;
+    cartContainer.innerHTML += `<div>Monday discount: 10% on your total!</div>`;
   }
 
   /* Fraktkostnad */
@@ -205,7 +205,7 @@ function updateCart() {
 
   /* Betalningsmetod */
   if (totalCost > 800) {
-    cartContainer.innerHTML += `<div>Betalsätt: Faktura ej tillgänglig för order över 800 kr</div>`;
+    cartContainer.innerHTML += `<div>Payment method: Inovoice not able over 800 kr</div>`;
   } else {
     cartContainer.innerHTML += `
       <div>Betalsätt:
@@ -224,7 +224,7 @@ let inactivityTimer;
 function startInactivityTimer() {
   clearTimeout(inactivityTimer);
   inactivityTimer = setTimeout(() => {
-    alert('Du var för långsam, din varukorg har rensats.');
+    alert('Sorry, you have been gone for too long!');
     sprayCans.forEach(can => can.amount = 0); // Rensa varukorgen
     saveCartToStorage(sprayCans); // Uppdatera localStorage
     printSprayCans(); // Uppdatera visningen
@@ -250,7 +250,6 @@ function increaseAmount(e) {
   printSprayCans();
   startInactivityTimer();
 }
-
 function printSprayCans() {
   sprayCansContainer.innerHTML = '';
 
@@ -263,6 +262,7 @@ function printSprayCans() {
         <img src="${can.image.src}" alt="${can.image.alt}">
         <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
         <div>Amount: <span>${can.amount}</span></div>
+        <div>Rating: ${generateStars(can.stars)}</div>
         <button class="minus" data-id="${can.id}">-</button>
         <button class="plus" data-id="${can.id}">+</button>
       </article>
@@ -281,6 +281,25 @@ function printSprayCans() {
   });
 
   updateCart();
+}
+
+// Funktion för att generera stjärnor baserat på betyg
+function generateStars(rating) {
+  const fullStar = '★';
+  const halfStar = '☆';
+  const maxStars = 5;
+  let stars = '';
+
+  for (let i = 1; i <= maxStars; i++) {
+    if (i <= rating) {
+      stars += fullStar;
+    } else if (i - rating === 0.5) {
+      stars += halfStar;
+    } else {
+      stars += '☆';
+    }
+  }
+  return stars;
 }
 
 /* Återställ formuläret */
