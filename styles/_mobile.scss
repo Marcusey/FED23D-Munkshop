@@ -56,9 +56,9 @@ body {
       }
     }
   }
-
+// Resterande för sidan
   main {
-    padding-top: 4rem; // För att kompensera för den fasta headern
+    padding-top: 4rem; // För att kompensera för den fasta headern- det går inte annars!
 
     .home-section, .spray-section, .cart-section, .customer-details, #contact-page {
       min-height: 100vh;
