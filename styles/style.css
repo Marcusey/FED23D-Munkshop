@@ -29,6 +29,7 @@
     list-style: none;
     display: flex;
     justify-content: space-around;
+    text-align: center;
     width: 100%;
   }
   body header nav .menu-popout .menu-container .menu-object {
