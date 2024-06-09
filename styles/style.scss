@@ -1,20 +1,24 @@
+// Importera grundläggande stilar för mobil först
 @import 'mobile';
 
+// Anpassa stilar för tablets
 @media screen and (min-width: 768px) {
     @import 'tablet';
 }
 
+// Anpassa stilar för desktops
 @media screen and (min-width: 1024px) {
     @import 'desktop';
 }
 
+// Grundläggande stilar för hela dokumentet
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    margin: 0; /* Ta bort standardmarginalen för body- inga fula mellanrum */
-    font-family: 'Klee One';
+    margin: 0; // Ta bort standardmarginalen för body - inga fula mellanrum
+    font-family: 'Klee One', sans-serif;
     position: relative;
 
     header {
@@ -30,9 +34,9 @@ body {
             display: flex;
             flex-direction: row;
             align-items: center;
-            position:fixed; /* Navbaren följer med vid scrollning */
+            position: fixed; // Navbaren följer med vid scrollning
             top: 0;
- 
+
             .menu-popout {
                 flex-grow: 1;
                 display: flex;
@@ -56,18 +60,20 @@ body {
             }
 
             #shopping-cart {
-              border: none;
-              background-color: blue;
-              margin: 2rem;
+                border: none;
+                background-color:#0e3f52;
+                margin: 1rem;
+                padding: 0;
                 display: flex;
                 align-items: center;
-            } }
+            }
         }
     }
 
     main {
         position: relative;
-         .home-section {
+
+        .home-section {
             min-height: calc(100vh - 4rem);
             background-image: url('../assets/pictures/spraysky.jpg');
             background-repeat: no-repeat;
@@ -87,14 +93,14 @@ body {
             background-size: cover;
             color: white;
             display: flex;
-            flex-wrap:wrap;
-            justify-content:space-around;
+            flex-wrap: wrap;
+            justify-content: space-around;
             text-align: center;
             padding: 2rem;
         }
 
         #sprayCansForSale {
-          background-color: white;
+            background-color: white;
             color: rgb(0, 0, 0);
             border-radius: 20px;
             display: flex;
@@ -118,7 +124,7 @@ body {
             height: auto;
         }
     }
-      
+
     .welcome-title {
         font-size: 8rem;
         margin-top: 2rem;
@@ -131,13 +137,12 @@ body {
     }
 
     #frame-shop {
-      padding: 2rem;
-      text-align: center;
-      display: flex;
-      align-items: center;
-
+        padding: 2rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
     }
-    
+
     .cart-section {
         background-image: url('/assets/pictures/spraysky.jpg');
         min-height: 100vh;
@@ -147,7 +152,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-
 
         article.cart-item {
             background-color: rgba(225, 225, 225, 0.2);
@@ -159,57 +163,57 @@ body {
             text-align: center;
             padding: 10px;
             border-radius: 10px;
-      
-          img {
-            align-items: center;
-            max-width: 100px;
-            height: auto;
-            border-radius: 100px;
-          }
-      
-          h3 {
-            margin: 0;
-            align-items: center;
-            text-align: center;
-            text-transform: uppercase;
-          }
-        }
-      
-        .total {
-          margin-top: 20px;
-          h3 {
-            font-size: 1.5em;
-            text-align: center;
-          }
-          
+
+            img {
+                align-items: center;
+                max-width: 100px;
+                height: auto;
+                border-radius: 100px;
+            }
+
+            h3 {
+                margin: 0;
+                align-items: center;
+                text-align: center;
+                text-transform: uppercase;
+            }
         }
 
-      }
-      .cart-item-image {
+        .total {
+            margin-top: 20px;
+
+            h3 {
+                font-size: 1.5em;
+                text-align: center;
+            }
+        }
+    }
+
+    .cart-item-image {
         width: 100px;
         height: auto;
         margin-right: 20px;
-      }
-    
-      .cart-item-details {
+    }
+
+    .cart-item-details {
         display: flex;
         flex-direction: column;
         justify-content: center;
-      }
-    
-      .cart-item-details h3 {
-        margin: 0 0 10px 0;
-      }
+    }
 
-      .customer-details {
+    .cart-item-details h3 {
+        margin: 0 0 10px 0;
+    }
+
+    .customer-details {
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
         background-image: url(/assets/pictures/spraysky.jpg);
-      }
-          
-      #customerDetails {
+    }
+
+    #customerDetails {
         margin: 5rem;
         max-width: 500px;
         width: 100%;
@@ -219,86 +223,86 @@ body {
         background-color: #28556f;
         color: white;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+    }
 
-      #customerDetails h2 {
+    #customerDetails h2 {
         margin-bottom: 20px;
         text-transform: uppercase;
-      }
+    }
 
-      .form-group {
+    .form-group {
         margin-bottom: 10px;
         padding: 0.2rem;
-      }
+    }
 
-      .form-group label {
+    .form-group label {
         display: block;
         font-weight: bold;
         margin-bottom: 5px;
-      }
+    }
 
-      .form-group input[type="text"],
-      .form-group input[type="number"],
-      .form-group input[type="tel"],
-      .form-group input[type="email"] {
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"] {
         width: 80%;
         padding: 10px;
         border-radius: 10px;
         border: 5px solid #ccc;
-      }
+    }
 
-      .radio-buttons {
+    .radio-buttons {
         display: flex;
-        justify-content:space-around;
+        justify-content: space-around;
         margin-top: 2px;
         font-size: 0.8rem;
-        text-transform: uppercase;      }
+        text-transform: uppercase;
+    }
 
-      .hidden {
+    .hidden {
         display: none;
-      }
+    }
 
-      .buttons {
+    .buttons {
         margin-top: 20px;
-      }
+    }
 
-      .buttons button {
+    .buttons button {
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
         background-color: #0e3f52;
         color: #fff;
         cursor: pointer;
-      }
+    }
 
-      .buttons button:disabled {
+    .buttons button:disabled {
         background-color: #cacdd0;
         cursor: not-allowed;
-      }
+    }
 
-      .buttons button:hover:not(:disabled) {
+    .buttons button:hover:not(:disabled) {
         background-color: #003036;
-      }
+    }
 
-    
     #customerDetails form {
         display: flex;
         flex-direction: column;
     }
-    
+
     #customerDetails form label {
         margin-bottom: 10px;
         display: flex;
         flex-direction: column;
     }
-    
+
     #customerDetails form input {
         margin-top: 5px;
         padding: 10px;
         border-radius: 5px;
         border: 1px solid #ccc;
     }
-    
+
     #customerDetails form input[type="button"] {
         margin-top: 20px;
         padding: 10px 20px;
@@ -308,7 +312,7 @@ body {
         color: white;
         cursor: pointer;
     }
-    
+
     #customerDetails form input[type="button"]:hover {
         background-color: rgb(0, 41, 54);
     }
@@ -321,47 +325,47 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-      }
-      
-      #contact-content {
+    }
+
+    #contact-content {
         background-color: rgba(255, 255, 255, 0.4);
         border-radius: 10px;
         width: 30rem;
         color: white;
-      }
-      
-      .contact-box {
+    }
+
+    .contact-box {
         text-align: center;
-      }
-      
-      .contact-box h1 {
+    }
+
+    .contact-box h1 {
         text-align: center;
         margin-bottom: 10px;
-      }
-      
-      .contact-info {
+    }
+
+    .contact-info {
         margin-top: 20px;
         padding: 1rem;
-      }
-      
-      .contact-info p {
+    }
+
+    .contact-info p {
         text-align: left;
         margin: 5px 0;
-      }
-      
-      .contact-info a {
+    }
+
+    .contact-info a {
         color: inherit;
         text-decoration: none;
-      }
-
-      .sortButtons {
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
     }
-    
-    .sortButtons button {
-        background-color:#0e3f52;
+
+    .sortButtons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    button,
+    select {
+        background-color: rgb(14, 63, 82);
         color: white;
         border: none;
         padding: 10px 20px;
@@ -369,26 +373,17 @@ body {
         cursor: pointer;
         margin: 5px 0;
         transition: background-color 0.3s ease;
-    }
-    
-    .sortButtons button:hover {
-        background-color:#28556f;
-    }
-    
-    .sortButtons select {
-      text-align: center;
-        background-color:#0e3f52;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 10px;
-        cursor: pointer;
-        margin: 5px 0; 
+        font-size: 1rem;
     }
 
-      #footer {
+    button:hover,
+    select:hover {
+        background-color: rgb(0, 41, 54);
+    }
+
+    #footer {
         text-align: center;
-        padding: 1rem;;
-        background-color: #0e3f52;
-        color: white;
-      }
+        padding: 1rem;
+        background-color: rgb(14, 63, 82);
+    }
+}

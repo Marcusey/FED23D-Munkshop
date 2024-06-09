@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="SprayStation">
     <meta name="keywords" content="spraycans, cans, can, spray, color, spraycolor, spraystation">
+    <meta name="description" content="SprayStation: Din ultimata destination för sprayburkar. Upptäck ett brett utbud av färgglada sprayfärger och handla online. Perfekt för alla dina konst- och DIY-projekt.">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>SprayStation</title>
 </head>
 <body>
+    <!-- ******************* Header ******************* -->
     <header>
-      <!-- ******************* Navigationbar ******************* -->
         <nav>
             <div class="menu-popout">
                 <ul class="menu-container">
@@ -24,50 +25,51 @@
                 </ul>
             </div>
             <div id="shopping-cart">
-              <button class="cart-button">
-                <i class="fa fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-              </button>
+                <button class="cart-button">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
             </div>
         </nav>
-    </header> 
+    </header>
+    
+    <!-- ******************* Main Content ******************* -->
     <main>
-      <!-- ******************* First page ******************* -->
-      <div class="wrap">
+        <!-- ******************* First Page ******************* -->
         <section id="home-section" class="home-section">
             <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
         </section>
-      </div>
-      <!-- ******************* SHOP SPRAYCANS ******************* -->
-      <section id="spray-section" class="spray-section">
-        <div id="frame-shop">
-          <div>
-          <h1>The SprayStation Shop</h1>
-          <p>Welcome, please feel free to buy your colors.</p>
-          </div>
-          <div class="sortButtons">
-            <button id="sortByRating">Sort by rating and see all colors</button>
-            <button id="sortByName">Sort by Name</button>
-            <button id="sortByPrice">Sort by Price</button>
-            <select id="sortByCategory">
-              <option value="light">Light Colors</option>
-              <option value="dark">Dark Colors</option>
-              <option value="pastel">Pastel Colors</option>
-            </select>
-          </div>
-        </div>    
-          </div>
-          <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
+
+        <!-- ******************* Shop Spraycans ******************* -->
+        <section id="spray-section" class="spray-section">
+            <div id="frame-shop">
+                <h1>The SprayStation Shop</h1>
+                <p>Welcome, please feel free to buy your colors.</p>
+                <div class="sortButtons">
+                    <button id="sortByRating">Sort by rating and see all colors</button>
+                    <button id="sortByName">Sort by Name</button>
+                    <button id="sortByPrice">Sort by Price</button>
+                    <select id="sortByCategory">
+                        <option value="light">Light Colors</option>
+                        <option value="dark">Dark Colors</option>
+                        <option value="pastel">Pastel Colors</option>
+                    </select>
+                </div>
+            </div>    
+            <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
-      <!-- ******************* SHOPPING CART ******************* -->
+
+        <!-- ******************* Shopping Cart ******************* -->
         <section class="cart-section" id="cartSection">
-          <h1>Shoppingcart</h1>
+            <h1>Shoppingcart</h1>
         </section>
-          <!-- form -->
-          <section class="customer-details" id="customers-details">
+
+        <!-- ******************* Customer Details Form ******************* -->
+        <section class="customer-details" id="customers-details">
             <div id="customerDetails">
                 <h2>Customer Details</h2>
                 <form>
+                    <!-- Personal Information -->
                     <div class="form-group">
                         <label for="firstName">First name:</label>
                         <input type="text" id="firstName" required>
@@ -100,6 +102,8 @@
                         <label for="email">E-mail:</label>
                         <input type="email" id="email" required>
                     </div>
+                    
+                    <!-- Payment Information -->
                     <div class="form-group">
                         <label>Payment Option:</label>
                         <div class="radio-buttons">
@@ -123,16 +127,22 @@
                             <input type="text" id="ssn">
                         </div>
                     </div>
+                    
+                    <!-- Additional Information -->
                     <div class="form-group">
                         <label for="discountCode">Discount code:</label>
                         <input id="discountCode" type="text">
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" id="gdprCheck" required> <label for="gdprCheck">It's OKAY with GDPR!</label>
+                        <input type="checkbox" id="gdprCheck" required> 
+                        <label for="gdprCheck">It's OKAY with GDPR!</label>
                     </div>
                     <div class="form-group">
-                        <input type="checkbox" id="newsletter" checked> <label for="newsletter">I want news from Spray Station!</label>
+                        <input type="checkbox" id="newsletter" checked> 
+                        <label for="newsletter">I want news from Spray Station!</label>
                     </div>
+                    
+                    <!-- Form Buttons -->
                     <div class="buttons">
                         <button type="reset" id="resetForm">Cancel Order</button>
                         <button type="submit" id="sendForm" disabled>Place Order</button>
@@ -140,28 +150,32 @@
                 </form>
             </div>
         </section>        
-          <!-- form -->
-<!--- ******** CONTACT ************** ------>
-          <section id="contact-page">
+
+        <!-- ******************* Contact ******************* -->
+        <section id="contact-page">
             <div id="contact-content">
-              <div class="contact-box">
-                <h1>Contact us</h1>
-                <p>Having any doubts? Want to ask us something? Please feel free to contact us anytime soon! We're trying to get back to you within 48 hours.</p>
-                <div class="contact-info">
-                  <p>SprayStation</p>
-                  <p>Bridgeroad 10</p>
-                  <p>182 392 New York</p>
-                  <p><a href="mailto:contact@spraystation.com">contact@spraystation.com</a></p>
-                  <p>056/876 543 21</p>
+                <div class="contact-box">
+                    <h1>Contact us</h1>
+                    <p>Having any doubts? Want to ask us something? Please feel free to contact us anytime soon! We're trying to get back to you within 48 hours.</p>
+                    <div class="contact-info">
+                        <p>SprayStation</p>
+                        <p>Bridgeroad 10</p>
+                        <p>182 392 New York</p>
+                        <p><a href="mailto:contact@spraystation.com">contact@spraystation.com</a></p>
+                        <p>056/876 543 21</p>
+                    </div>
                 </div>
-              </div>
             </div>
-          </section>
+        </section>
     </main>
+
+    <!-- ******************* Footer ******************* -->
     <footer id="footer">
-      <p>- SprayStation 2024 -</p>
-      <p>&copy;Marcus Yttermyr</p>
+        <p>- SprayStation 2024 -</p>
+        <p>&copy; Marcus Yttermyr</p>
     </footer>
+
+    <!-- ******************* Scripts ******************* -->
     <script type="module" src="/main.js"></script>
 </body>
 </html>

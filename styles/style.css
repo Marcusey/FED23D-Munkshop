@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @media (max-width: 768px) {
   body {
     margin: 0;
@@ -48,7 +47,11 @@
   body main {
     padding-top: 4rem;
   }
-  body main .home-section, body main .spray-section, body main .cart-section, body main .customer-details, body main #contact-page {
+  body main .home-section,
+  body main .spray-section,
+  body main .cart-section,
+  body main .customer-details,
+  body main #contact-page {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -62,9 +65,35 @@
   body main .home-section {
     background-position: center;
   }
+  body main .welcome-title {
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
   body main .spray-section {
     flex-wrap: wrap;
     padding: 2rem;
+  }
+  body main #frame-shop {
+    padding: 2rem;
+  }
+  body main .sortButtons {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  body main .sortButtons button, body main .sortButtons select {
+    background-color: #0e3f52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+  }
+  body main .sortButtons button:hover, body main .sortButtons select:hover {
+    background-color: #28556f;
   }
   body main #sprayCansForSale {
     background-color: white;
@@ -87,18 +116,10 @@
     max-width: 80%;
     height: auto;
   }
-  body .welcome-title {
-    font-size: 3rem;
-    margin-top: 2rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  }
-  body #frame-shop {
-    padding: 2rem;
-  }
-  body .cart-section {
+  body main .cart-section {
     flex-direction: column;
   }
-  body .cart-section article.cart-item {
+  body main .cart-section article.cart-item {
     background-color: rgba(225, 225, 225, 0.2);
     display: flex;
     align-items: center;
@@ -107,18 +128,18 @@
     padding: 10px;
     border-radius: 10px;
   }
-  body .cart-section article.cart-item img {
+  body main .cart-section article.cart-item img {
     max-width: 100px;
     border-radius: 100px;
   }
-  body .cart-section article.cart-item h3 {
+  body main .cart-section article.cart-item h3 {
     margin: 0;
     text-transform: uppercase;
   }
-  body .cart-section .total h3 {
+  body main .cart-section .total h3 {
     font-size: 1.5em;
   }
-  body .customer-details #customerDetails {
+  body main .customer-details #customerDetails {
     margin: 2rem;
     max-width: 90%;
     text-align: center;
@@ -127,42 +148,42 @@
     background-color: #28556f;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  body .customer-details #customerDetails h2 {
+  body main .customer-details #customerDetails h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
   }
-  body .customer-details #customerDetails .form-group {
+  body main .customer-details #customerDetails .form-group {
     margin-bottom: 10px;
     padding: 0.2rem;
   }
-  body .customer-details #customerDetails .form-group label {
+  body main .customer-details #customerDetails .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  body .customer-details #customerDetails .form-group input[type=text],
-  body .customer-details #customerDetails .form-group input[type=number],
-  body .customer-details #customerDetails .form-group input[type=tel],
-  body .customer-details #customerDetails .form-group input[type=email] {
+  body main .customer-details #customerDetails .form-group input[type=text],
+  body main .customer-details #customerDetails .form-group input[type=number],
+  body main .customer-details #customerDetails .form-group input[type=tel],
+  body main .customer-details #customerDetails .form-group input[type=email] {
     width: 80%;
     padding: 10px;
     border-radius: 10px;
     border: 5px solid #ccc;
   }
-  body .customer-details #customerDetails .radio-buttons {
+  body main .customer-details #customerDetails .radio-buttons {
     display: flex;
     justify-content: space-around;
     margin-top: 2px;
     font-size: 0.8rem;
     text-transform: uppercase;
   }
-  body .customer-details #customerDetails .hidden {
+  body main .customer-details #customerDetails .hidden {
     display: none;
   }
-  body .customer-details #customerDetails .buttons {
+  body main .customer-details #customerDetails .buttons {
     margin-top: 20px;
   }
-  body .customer-details #customerDetails .buttons button {
+  body main .customer-details #customerDetails .buttons button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -171,57 +192,39 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  body .customer-details #customerDetails .buttons button:disabled {
+  body main .customer-details #customerDetails .buttons button:disabled {
     background-color: #cacdd0;
     cursor: not-allowed;
   }
-  body .customer-details #customerDetails .buttons button:hover:not(:disabled) {
+  body main .customer-details #customerDetails .buttons button:hover:not(:disabled) {
     background-color: #003036;
   }
-  body #contact-page {
+  body main #contact-page {
     justify-content: center;
   }
-  body #contact-page #contact-content {
+  body main #contact-page #contact-content {
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     width: 90%;
     max-width: 30rem;
     padding: 1rem;
   }
-  body #contact-page #contact-content .contact-box {
+  body main #contact-page #contact-content .contact-box {
     text-align: center;
   }
-  body #contact-page #contact-content .contact-box h1 {
+  body main #contact-page #contact-content .contact-box h1 {
     margin-bottom: 10px;
   }
-  body #contact-page #contact-content .contact-box .contact-info {
+  body main #contact-page #contact-content .contact-box .contact-info {
     margin-top: 20px;
   }
-  body #contact-page #contact-content .contact-box .contact-info p {
+  body main #contact-page #contact-content .contact-box .contact-info p {
     text-align: left;
     margin: 5px 0;
   }
-  body #contact-page #contact-content .contact-box .contact-info a {
+  body main #contact-page #contact-content .contact-box .contact-info a {
     color: inherit;
     text-decoration: none;
-  }
-  body .sortButtons {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-  }
-  body .sortButtons button, body .sortButtons select {
-    background-color: #0e3f52;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin: 5px 0;
-    transition: background-color 0.3s ease;
-  }
-  body .sortButtons button:hover, body .sortButtons select:hover {
-    background-color: #28556f;
   }
   body #footer {
     text-align: center;
@@ -234,9 +237,528 @@
     background-image: url(../assets/pictures/spraysky.jpg);
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) and (min-width: 769px) and (max-width: 1024px) {
   body {
-    background-image: url(../assets/pictures/spraysky.jpg);
+    margin: 0;
+    font-family: "Klee One";
+    position: relative;
+    color: white;
+    background-color: #0e3f52;
+    background-image: url("../assets/pictures/spraysky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #0e3f52;
+  }
+  body header nav {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+  body header nav .menu-popout {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+  }
+  body header nav .menu-popout .menu-container {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+  }
+  body header nav .menu-popout .menu-container .menu-object {
+    padding: 0 15px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+  body header nav #shopping-cart {
+    background-color: #0e3f52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-left: auto;
+  }
+  body header nav #shopping-cart .cart-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  body header nav #shopping-cart .cart-button i {
+    font-size: 1.5rem;
+  }
+  body header nav #shopping-cart .cart-button .cart-count {
+    background-color: #28556f;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.5rem;
+  }
+  body main {
+    padding-top: 5rem;
+  }
+  body main .home-section,
+  body main .spray-section,
+  body main .cart-section,
+  body main .customer-details,
+  body main #contact-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    padding: 2rem;
+  }
+  body main .home-section {
+    background-position: center;
+  }
+  body main .welcome-title {
+    font-size: 4rem;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  body main .spray-section {
+    flex-wrap: wrap;
+    padding: 3rem;
+  }
+  body main .spray-section #frame-shop {
+    padding: 1rem 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+  }
+  body main .spray-section #frame-shop h1 {
+    font-size: 2.5rem;
+  }
+  body main .spray-section #frame-shop p {
+    font-size: 1.2rem;
+  }
+  body main .spray-section .sortButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  body main .spray-section .sortButtons button, body main .spray-section .sortButtons select {
+    background-color: #0e3f52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  body main .spray-section .sortButtons button:hover, body main .spray-section .sortButtons select:hover {
+    background-color: #28556f;
+  }
+  body main .spray-section #sprayCansForSale {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  body main .spray-section #sprayCansForSale article {
+    text-transform: uppercase;
+    padding: 10px;
+    width: 45%;
+  }
+  body main .spray-section #sprayCansForSale img {
+    max-width: 80%;
+    height: auto;
+  }
+  body main .cart-section {
+    flex-direction: column;
+  }
+  body main .cart-section article.cart-item {
+    background-color: rgba(225, 225, 225, 0.2);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0.3rem;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  body main .cart-section article.cart-item img {
+    max-width: 100px;
+    border-radius: 100px;
+  }
+  body main .cart-section article.cart-item h3 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  body main .cart-section .total h3 {
+    font-size: 1.5em;
+  }
+  body main .customer-details #customerDetails {
+    margin: 2rem;
+    max-width: 100%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #28556f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  body main .customer-details #customerDetails h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  body main .customer-details #customerDetails .form-group {
+    margin-bottom: 10px;
+    padding: 0.2rem;
+  }
+  body main .customer-details #customerDetails .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  body main .customer-details #customerDetails .form-group input[type=text],
+  body main .customer-details #customerDetails .form-group input[type=number],
+  body main .customer-details #customerDetails .form-group input[type=tel],
+  body main .customer-details #customerDetails .form-group input[type=email] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+  }
+  body main .customer-details #customerDetails .radio-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  body main .customer-details #customerDetails .hidden {
+    display: none;
+  }
+  body main .customer-details #customerDetails .buttons {
+    margin-top: 20px;
+  }
+  body main .customer-details #customerDetails .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0e3f52;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  body main .customer-details #customerDetails .buttons button:disabled {
+    background-color: #cacdd0;
+    cursor: not-allowed;
+  }
+  body main .customer-details #customerDetails .buttons button:hover:not(:disabled) {
+    background-color: #003036;
+  }
+  body main #contact-page {
+    justify-content: center;
+  }
+  body main #contact-page #contact-content {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    width: 100%;
+    max-width: 40rem;
+    padding: 1rem;
+  }
+  body main #contact-page #contact-content .contact-box {
+    text-align: center;
+  }
+  body main #contact-page #contact-content .contact-box h1 {
+    margin-bottom: 10px;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info {
+    margin-top: 20px;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info p {
+    text-align: left;
+    margin: 5px 0;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info a {
+    color: inherit;
+    text-decoration: none;
+  }
+  body #footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0e3f52;
+  }
+}
+@media screen and (min-width: 1024px) and (min-width: 1024px) {
+  body {
+    margin: 0;
+    font-family: "Klee One";
+    position: relative;
+    color: white;
+    background-color: #0e3f52;
+    background-image: url("../assets/pictures/spraysky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  body header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #0e3f52;
+  }
+  body header nav {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+  body header nav .menu-popout {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+  }
+  body header nav .menu-popout .menu-container {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    width: 100%;
+  }
+  body header nav .menu-popout .menu-container .menu-object {
+    padding: 0 20px;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+  body header nav #shopping-cart {
+    background-color: #0e3f52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-left: auto;
+  }
+  body header nav #shopping-cart .cart-button {
+    display: flex;
+    align-items: center;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  body header nav #shopping-cart .cart-button i {
+    font-size: 1.5rem;
+  }
+  body header nav #shopping-cart .cart-button .cart-count {
+    background-color: #28556f;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    margin-left: 0.5rem;
+  }
+  body main {
+    padding-top: 5rem;
+  }
+  body main .home-section {
+    min-height: calc(100vh - 4rem);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  body main .home-section .welcome-title {
+    font-size: 6rem;
+    margin-top: 2rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  body main .spray-section {
+    flex-wrap: wrap;
+    padding: 3rem;
+  }
+  body main .spray-section #frame-shop {
+    padding: 1rem 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+  }
+  body main .spray-section #frame-shop h1 {
+    font-size: 2.5rem;
+  }
+  body main .spray-section #frame-shop p {
+    font-size: 1.2rem;
+  }
+  body main .spray-section .sortButtons {
+    display: flex;
+    gap: 1rem;
+  }
+  body main .spray-section .sortButtons button, body main .spray-section .sortButtons select {
+    background-color: #0e3f52;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+  }
+  body main .spray-section .sortButtons button:hover, body main .spray-section .sortButtons select:hover {
+    background-color: #28556f;
+  }
+  body main .spray-section #sprayCansForSale {
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  body main .spray-section #sprayCansForSale article {
+    text-transform: uppercase;
+    padding: 10px;
+    width: 25%;
+  }
+  body main .spray-section #sprayCansForSale img {
+    max-width: 80%;
+    height: auto;
+  }
+  body main .cart-section {
+    flex-direction: column;
+  }
+  body main .cart-section article.cart-item {
+    background-color: rgba(225, 225, 225, 0.2);
+    display: flex;
+    align-items: center;
+    width: 40%;
+    margin: 0.3rem;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  body main .cart-section article.cart-item img {
+    max-width: 100px;
+    border-radius: 100px;
+  }
+  body main .cart-section article.cart-item h3 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+  body main .cart-section .total h3 {
+    font-size: 1.5em;
+  }
+  body main .customer-details #customerDetails {
+    margin: 2rem;
+    max-width: 60%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #28556f;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  body main .customer-details #customerDetails h2 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  body main .customer-details #customerDetails .form-group {
+    margin-bottom: 10px;
+    padding: 0.2rem;
+  }
+  body main .customer-details #customerDetails .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  body main .customer-details #customerDetails .form-group input[type=text],
+  body main .customer-details #customerDetails .form-group input[type=number],
+  body main .customer-details #customerDetails .form-group input[type=tel],
+  body main .customer-details #customerDetails .form-group input[type=email] {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px solid #ccc;
+  }
+  body main .customer-details #customerDetails .radio-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  body main .customer-details #customerDetails .hidden {
+    display: none;
+  }
+  body main .customer-details #customerDetails .buttons {
+    margin-top: 20px;
+  }
+  body main .customer-details #customerDetails .buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0e3f52;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  body main .customer-details #customerDetails .buttons button:disabled {
+    background-color: #cacdd0;
+    cursor: not-allowed;
+  }
+  body main .customer-details #customerDetails .buttons button:hover:not(:disabled) {
+    background-color: #003036;
+  }
+  body main #contact-page {
+    justify-content: center;
+  }
+  body main #contact-page #contact-content {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    width: 50%;
+    padding: 2rem;
+  }
+  body main #contact-page #contact-content .contact-box {
+    text-align: center;
+  }
+  body main #contact-page #contact-content .contact-box h1 {
+    margin-bottom: 10px;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info {
+    margin-top: 20px;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info p {
+    text-align: left;
+    margin: 5px 0;
+  }
+  body main #contact-page #contact-content .contact-box .contact-info a {
+    color: inherit;
+    text-decoration: none;
+  }
+  body #footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0e3f52;
   }
 }
 html {
@@ -244,8 +766,8 @@ html {
 }
 
 body {
-  margin: 0; /* Ta bort standardmarginalen för body- inga fula mellanrum */
-  font-family: "Klee One";
+  margin: 0;
+  font-family: "Klee One", sans-serif;
   position: relative;
 }
 body header {
@@ -261,7 +783,7 @@ body header nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: fixed; /* Navbaren följer med vid scrollning */
+  position: fixed;
   top: 0;
 }
 body header nav .menu-popout {
@@ -285,16 +807,16 @@ body header nav .menu-popout .menu-container .menu-object {
 }
 body header nav #shopping-cart {
   border: none;
-  background-color: blue;
-  margin: 2rem;
+  background-color: #0e3f52;
+  margin: 1rem;
+  padding: 0;
   display: flex;
   align-items: center;
 }
-
-main {
+body main {
   position: relative;
 }
-main .home-section {
+body main .home-section {
   min-height: calc(100vh - 4rem);
   background-image: url("../assets/pictures/spraysky.jpg");
   background-repeat: no-repeat;
@@ -306,7 +828,7 @@ main .home-section {
   text-align: center;
   color: white;
 }
-main .spray-section {
+body main .spray-section {
   min-height: 100vh;
   background-color: rgb(29, 44, 50);
   background-image: url("../assets/pictures/spraysky.jpg");
@@ -318,7 +840,7 @@ main .spray-section {
   text-align: center;
   padding: 2rem;
 }
-main #sprayCansForSale {
+body main #sprayCansForSale {
   background-color: white;
   color: rgb(0, 0, 0);
   border-radius: 20px;
@@ -330,36 +852,32 @@ main #sprayCansForSale {
   margin: 2rem;
   padding: 1rem;
 }
-main #sprayCansForSale article {
+body main #sprayCansForSale article {
   text-align: center;
   text-transform: uppercase;
   padding: 10px;
   width: calc(33.333% - 40px);
 }
-main #sprayCansForSale img {
+body main #sprayCansForSale img {
   max-width: 80%;
   height: auto;
 }
-
-.welcome-title {
+body .welcome-title {
   font-size: 8rem;
   margin-top: 2rem;
   text-shadow: 2px 2px 10px rgb(0, 0, 0);
   z-index: 1;
 }
-
-.menu-object a:visited {
+body .menu-object a:visited {
   text-decoration: none;
 }
-
-#frame-shop {
+body #frame-shop {
   padding: 2rem;
   text-align: center;
   display: flex;
   align-items: center;
 }
-
-.cart-section {
+body .cart-section {
   background-image: url("/assets/pictures/spraysky.jpg");
   min-height: 100vh;
   background-size: cover;
@@ -369,7 +887,7 @@ main #sprayCansForSale img {
   flex-direction: column;
   align-items: center;
 }
-.cart-section article.cart-item {
+body .cart-section article.cart-item {
   background-color: rgba(225, 225, 225, 0.2);
   display: flex;
   flex-direction: row;
@@ -380,51 +898,46 @@ main #sprayCansForSale img {
   padding: 10px;
   border-radius: 10px;
 }
-.cart-section article.cart-item img {
+body .cart-section article.cart-item img {
   align-items: center;
   max-width: 100px;
   height: auto;
   border-radius: 100px;
 }
-.cart-section article.cart-item h3 {
+body .cart-section article.cart-item h3 {
   margin: 0;
   align-items: center;
   text-align: center;
   text-transform: uppercase;
 }
-.cart-section .total {
+body .cart-section .total {
   margin-top: 20px;
 }
-.cart-section .total h3 {
+body .cart-section .total h3 {
   font-size: 1.5em;
   text-align: center;
 }
-
-.cart-item-image {
+body .cart-item-image {
   width: 100px;
   height: auto;
   margin-right: 20px;
 }
-
-.cart-item-details {
+body .cart-item-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-.cart-item-details h3 {
+body .cart-item-details h3 {
   margin: 0 0 10px 0;
 }
-
-.customer-details {
+body .customer-details {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background-image: url(/assets/pictures/spraysky.jpg);
 }
-
-#customerDetails {
+body #customerDetails {
   margin: 5rem;
   max-width: 500px;
   width: 100%;
@@ -435,50 +948,42 @@ main #sprayCansForSale img {
   color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-#customerDetails h2 {
+body #customerDetails h2 {
   margin-bottom: 20px;
   text-transform: uppercase;
 }
-
-.form-group {
+body .form-group {
   margin-bottom: 10px;
   padding: 0.2rem;
 }
-
-.form-group label {
+body .form-group label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
-
-.form-group input[type=text],
-.form-group input[type=number],
-.form-group input[type=tel],
-.form-group input[type=email] {
+body .form-group input[type=text],
+body .form-group input[type=number],
+body .form-group input[type=tel],
+body .form-group input[type=email] {
   width: 80%;
   padding: 10px;
   border-radius: 10px;
   border: 5px solid #ccc;
 }
-
-.radio-buttons {
+body .radio-buttons {
   display: flex;
   justify-content: space-around;
   margin-top: 2px;
   font-size: 0.8rem;
   text-transform: uppercase;
 }
-
-.hidden {
+body .hidden {
   display: none;
 }
-
-.buttons {
+body .buttons {
   margin-top: 20px;
 }
-
-.buttons button {
+body .buttons button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -486,35 +991,29 @@ main #sprayCansForSale img {
   color: #fff;
   cursor: pointer;
 }
-
-.buttons button:disabled {
+body .buttons button:disabled {
   background-color: #cacdd0;
   cursor: not-allowed;
 }
-
-.buttons button:hover:not(:disabled) {
+body .buttons button:hover:not(:disabled) {
   background-color: #003036;
 }
-
-#customerDetails form {
+body #customerDetails form {
   display: flex;
   flex-direction: column;
 }
-
-#customerDetails form label {
+body #customerDetails form label {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
-
-#customerDetails form input {
+body #customerDetails form input {
   margin-top: 5px;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
-
-#customerDetails form input[type=button] {
+body #customerDetails form input[type=button] {
   margin-top: 20px;
   padding: 10px 20px;
   border: none;
@@ -523,12 +1022,10 @@ main #sprayCansForSale img {
   color: white;
   cursor: pointer;
 }
-
-#customerDetails form input[type=button]:hover {
+body #customerDetails form input[type=button]:hover {
   background-color: rgb(0, 41, 54);
 }
-
-#contact-page {
+body #contact-page {
   position: relative;
   min-height: 100vh;
   background-image: url(/assets/pictures/spraysky.jpg);
@@ -537,46 +1034,38 @@ main #sprayCansForSale img {
   justify-content: center;
   align-items: center;
 }
-
-#contact-content {
+body #contact-content {
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   width: 30rem;
   color: white;
 }
-
-.contact-box {
+body .contact-box {
   text-align: center;
 }
-
-.contact-box h1 {
+body .contact-box h1 {
   text-align: center;
   margin-bottom: 10px;
 }
-
-.contact-info {
+body .contact-info {
   margin-top: 20px;
   padding: 1rem;
 }
-
-.contact-info p {
+body .contact-info p {
   text-align: left;
   margin: 5px 0;
 }
-
-.contact-info a {
+body .contact-info a {
   color: inherit;
   text-decoration: none;
 }
-
-.sortButtons {
+body .sortButtons {
   display: flex;
-  flex-direction: column;
-  margin: 20px;
+  gap: 1rem;
 }
-
-.sortButtons button {
-  background-color: #0e3f52;
+body button,
+body select {
+  background-color: rgb(14, 63, 82);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -584,26 +1073,14 @@ main #sprayCansForSale img {
   cursor: pointer;
   margin: 5px 0;
   transition: background-color 0.3s ease;
+  font-size: 1rem;
 }
-
-.sortButtons button:hover {
-  background-color: #28556f;
+body button:hover,
+body select:hover {
+  background-color: rgb(0, 41, 54);
 }
-
-.sortButtons select {
-  text-align: center;
-  background-color: #0e3f52;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  margin: 5px 0;
-}
-
-#footer {
+body #footer {
   text-align: center;
   padding: 1rem;
-  background-color: #0e3f52;
-  color: white;
+  background-color: rgb(14, 63, 82);
 }/*# sourceMappingURL=style.css.map */

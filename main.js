@@ -1,5 +1,6 @@
 import './styles/style.scss';
 
+//-- Körs när hela dokumentet laddat.--//
 document.addEventListener('DOMContentLoaded', () => {
   printSprayCans();
   initializeCart();
@@ -7,9 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   startInactivityTimer();
 });
 
+//-- Väljare för huvudcontainrar --//
 const sprayCansContainer = document.querySelector('#sprayCansForSale');
 const cartContainer = document.querySelector('#cartSection');
 
+//--Hårdkodat sprayburkar/produkter--//
 const sprayCans = [
   { id: 1, name: 'CanCan in Sunset', price: 100, image: { src: '/assets/pictures/orange.jpg', alt: 'Spray Can 1 Image' }, amount: 0, stars: 4, category: 'light' },
   { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: { src: 'assets/pictures/yellow.jpg', alt: 'Spray Can 2 Image' }, amount: 0, stars: 3.5, category: 'light' },
@@ -25,25 +28,26 @@ const sprayCans = [
 //--------------------------------------------------------------------//
 /* ---------------------------LOCAL STORAGE-------------------------- */
 //--------------------------------------------------------------------//
-/* Hämta varukorgen från localStorage */
+
+//-- Hämtar varukorgen från localstorage--//
 function getCartFromStorage() {
   const cart = localStorage.getItem('cart');
   return cart ? JSON.parse(cart) : [];
 }
 
-/* Spara varukorgen till localStorage */
+//--Spara till localstorage--//
 function saveCartToStorage(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-/* Lägg till en händelselyssnare för att spara varukorgen varje gång den uppdateras */
+//--Lägg till en händelselyssnare för att spara varukorgen varje gång den uppdateras--//
 function addCartEventListener() {
   window.addEventListener('beforeunload', () => {
     saveCartToStorage(sprayCans);
   });
 }
 
-/* Initialiserar varukorgen */
+//-- Initialiserar varukorgen--//
 function initializeCart() {
   const savedCart = getCartFromStorage();
   if (savedCart.length > 0) {
@@ -56,16 +60,20 @@ function initializeCart() {
   }
 }
 
-//Funktion för att sortera produkter efter rating
+//--------------------------------------------------------------------//
+/* ---------------------------SORTERING------------------------------ */
+//--------------------------------------------------------------------//
+
+//--Sortera produkter efter betyg--//
 function sortByRating() {
   sprayCans.sort((a, b) => b.stars - a.stars);
-  printSprayCans(); // Uppdatera visningen efter sortering
+  printSprayCans();
 }
 
-//Funktion för att sortera produkter efter kategori
+//--Sortera produkter efter kategori--//
 function sortByCategory(category) {
   const filteredCans = sprayCans.filter(can => can.category === category);
-  sprayCansContainer.innerHTML = ''; // Rensa container innan uppdatering
+  sprayCansContainer.innerHTML = ''; //--Rensa container innan uppdatering--//
   filteredCans.forEach(can => {
     sprayCansContainer.innerHTML += `
       <article>
@@ -78,53 +86,50 @@ function sortByCategory(category) {
       </article>
     `;
   });
-  //Lägg till händelselyssnare för knapparna
   addEventListenersToButtons();
 }
 
+//--Sortera produkter efter namn--//
 function sortByName() {
   sprayCans.sort((a, b) => a.name.localeCompare(b.name));
   printSprayCans();
 }
 
-//sortera produkter efter pris
+//--Sortera produkter efter pris--//
 function sortByPrice() {
   sprayCans.sort((a, b) => a.price - b.price);
   printSprayCans();
 }
 
-//sortera produkter
-const sortByRatingButton = document.querySelector('#sortByRating');
-sortByRatingButton.addEventListener('click', sortByRating);
-
-const sortByCategoryButton = document.querySelector('#sortByCategory');
-sortByCategoryButton.addEventListener('change', (event) => {
+//--Event listeners för sorteringsknappar--//
+document.querySelector('#sortByRating').addEventListener('click', sortByRating);
+document.querySelector('#sortByCategory').addEventListener('change', (event) => {
   const selectedCategory = event.target.value;
   sortByCategory(selectedCategory);
 });
+document.querySelector('#sortByName').addEventListener('click', sortByName);
+document.querySelector('#sortByPrice').addEventListener('click', sortByPrice);
 
-//lyssnare för att sortera efter namn
-const sortByNameButton = document.querySelector('#sortByName');
-sortByNameButton.addEventListener('click', sortByName);
+//--------------------------------------------------------------------//
+/* --------------------------RABATTER------------------------------- */
+//--------------------------------------------------------------------//
 
-//lyssnare för att sortera efter pris
-const sortByPriceButton = document.querySelector('#sortByPrice');
-sortByPriceButton.addEventListener('click', sortByPrice);
-
+//--Hämta aktuell rabatt--//
 function getCurrentDiscount() {
   const now = new Date();
   const day = now.getDay();
   const hour = now.getHours();
 
   if (day === 1 && hour < 10) {
-    return { type: 'discount', value: 0.10 }; /* 10% rabatt på måndagar före kl. 10 */
+    return { type: 'discount', value: 0.10 }; // 10% rabatt på måndagar före kl. 10
   } else if ((day === 5 && hour >= 15) || (day === 6) || (day === 0) || (day === 1 && hour < 3)) {
-    return { type: 'surcharge', value: 0.15 }; /*  15% påslag från fredag kl. 15 till måndag kl. 03 */
+    return { type: 'surcharge', value: 0.15 }; // 15% påslag från fredag kl. 15 till måndag kl. 03
   }
 
   return { type: 'none', value: 0 };
 }
 
+//--Tillämpa rabatter på sprayburkar--//
 function applyDiscounts() {
   const discountInfo = getCurrentDiscount();
   sprayCans.forEach(can => {
@@ -133,16 +138,17 @@ function applyDiscounts() {
     } else {
       can.discountedPrice = can.price;
     }
-    /* Hantera mängd-rabatt */
+    //--Hantera mängd-rabatt--//
     if (can.amount >= 10) {
       can.discountedPrice = can.discountedPrice * 0.90;
-      can.bulkDiscountApplied = true; //Lägg till flagga för mängd-rabatt
+      can.bulkDiscountApplied = true; //--Lägger till flagga för mängd-rabatt--//
     } else {
-      can.bulkDiscountApplied = false; //Återställer
+      can.bulkDiscountApplied = false; //--Återställ--//
     }
   });
 }
 
+//--Beräkna totalbelopp--//
 function calculateTotal() {
   let total = 0;
   sprayCans.forEach(can => {
@@ -157,6 +163,11 @@ function calculateTotal() {
   return total;
 }
 
+//--------------------------------------------------------------------//
+/* -----------------------VARUKORG UPPDATERING------------------------ */
+//--------------------------------------------------------------------//
+
+//--Uppdatera varukorgen--//
 function updateCart() {
   cartContainer.innerHTML = '<h1>Shoppingcart</h1>';
 
@@ -181,16 +192,16 @@ function updateCart() {
     }
   });
 
-  //Uppdatera antalet produkter på shoppingcart ikonen
+  //--Uppdatera antalet produkter på shoppingcart ikonen--//
   document.querySelector('.cart-count').innerText = totalItems;
 
-  /* Lägg till rabatterad total */
+  //--Lägg till rabatterad total--//
   const discountInfo = getCurrentDiscount();
   if (discountInfo.type === 'discount') {
     cartContainer.innerHTML += `<div>Monday discount: 10% on your total!</div>`;
   }
 
-  /* Fraktkostnad */
+  //Visar fraktkostnad--//
   let shippingCost = 0;
   if (totalItems > 15) {
     shippingCost = 0;
@@ -203,9 +214,9 @@ function updateCart() {
 
   cartContainer.innerHTML += `<div>Total: ${totalCost.toFixed(2)} kr</div>`;
 
-  /* Betalningsmetod */
+  //--Betalningsmetod där faktura ej tillgängligt över 800kr--//
   if (totalCost > 800) {
-    cartContainer.innerHTML += `<div>Payment method: Inovoice not able over 800 kr</div>`;
+    cartContainer.innerHTML += `<div>Payment method: Invoice not able over 800 kr</div>`;
   } else {
     cartContainer.innerHTML += `
       <div>Betalsätt:
@@ -218,7 +229,11 @@ function updateCart() {
   }
 }
 
-/* Timer för att rensa varukorgen efter 15 minuter */
+//--------------------------------------------------------------------//
+/* ------------------------INAKTIVITETSTIMER------------------------- */
+//--------------------------------------------------------------------//
+
+//--Timer för att rensa varukorgen efter 15 minuter--//
 let inactivityTimer;
 
 function startInactivityTimer() {
@@ -231,6 +246,11 @@ function startInactivityTimer() {
   }, 15 * 60 * 1000); // 15 minuter
 }
 
+//--------------------------------------------------------------------//
+/* ----------------------KÖPHANTERINGSFUNKTIONER---------------------- */
+//--------------------------------------------------------------------//
+
+//--Minska mängden av en produkt--//
 function decreaseAmount(e) {
   const index = Number(e.currentTarget.dataset.id);
   const arrayIndex = sprayCans.findIndex(item => item.id === index);
@@ -242,6 +262,7 @@ function decreaseAmount(e) {
   startInactivityTimer();
 }
 
+//--Öka mängden av en produkt--//
 function increaseAmount(e) {
   const index = Number(e.currentTarget.dataset.id);
   const arrayIndex = sprayCans.findIndex(item => item.id === index);
@@ -250,6 +271,12 @@ function increaseAmount(e) {
   printSprayCans();
   startInactivityTimer();
 }
+
+//--------------------------------------------------------------------//
+/* ------------------------VISNINGSFUNKTIONER------------------------- */
+//--------------------------------------------------------------------//
+
+//--Visa sprayburkarna--//
 function printSprayCans() {
   sprayCansContainer.innerHTML = '';
 
@@ -283,7 +310,7 @@ function printSprayCans() {
   updateCart();
 }
 
-// Funktion för att generera stjärnor baserat på betyg
+//--Generera stjärnor baserat på betyg--//
 function generateStars(rating) {
   const fullStar = '★';
   const halfStar = '☆';
@@ -302,12 +329,15 @@ function generateStars(rating) {
   return stars;
 }
 
-/* Återställ formuläret */
+//--------------------------------------------------------------------//
+/* -------------------------FORMULÄRHANTERING------------------------- */
+//--------------------------------------------------------------------//
+
+//--Återställer formuläret--//
 function resetForm() {
   const form = document.querySelector('form');
   form.reset();
 }
 
-/* Lyssna på knappen för att återställa formuläret */
-const resetFormButton = document.querySelector('#resetForm');
-resetFormButton.addEventListener('click', resetForm);
+//--Lyssnare för att återställa formuläret--//
+document.querySelector('#resetForm').addEventListener('click', resetForm);
