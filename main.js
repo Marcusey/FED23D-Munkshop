@@ -263,12 +263,13 @@ function updateCart() {
     cartContainer.innerHTML += `<div>Payment method: Invoice not able over 800 kr</div>`;
   } else {
     cartContainer.innerHTML += `
-      <div>Payment:
-        <select>
-          <option value="card">Card</option>
-          <option value="invoice">Invoice</option>
-        </select>
-      </div>
+    <div class="form-group">
+    <label for="paymentMethod">Payment:</label>
+    <select id="paymentMethod">
+      <option value="card">Card</option>
+      <option value="invoice">Invoice</option>
+    </select>
+  </div>
     `;
   }
 }

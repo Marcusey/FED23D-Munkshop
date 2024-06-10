@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="SprayStation">
     <meta name="keywords" content="spraycans, cans, can, spray, color, spraycolor, spraystation">
     <meta name="description" content="SprayStation: Din ultimata destination för sprayburkar. Upptäck ett brett utbud av färgglada sprayfärger och handla online. Perfekt för alla dina konst- och DIY-projekt.">
@@ -37,7 +37,7 @@
     <main>
         <!-- ******************* First Page ******************* -->
         <section id="home-section" class="home-section">
-            <h1 class="welcome-title">Welcome to <br>SprayStation</h1>
+            <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
         </section>
 
         <!-- ******************* Shop Spraycans ******************* -->
@@ -46,16 +46,16 @@
                 <h1>The SprayStation Shop</h1>
                 <p>Welcome, please feel free to buy your colors.</p>
                 <div class="sortButtons">
-                  <button id="sortByRating">Sort by rating and see all colors</button>
-                  <button id="sortByName">Sort by Name</button>
-                  <button id="sortByPrice">Sort by Price</button>
-                  <label for="sortByCategory">Sort by Category:</label>
-                  <select id="sortByCategory">
-                      <option value="light">Show Light Colors</option>
-                      <option value="dark">Show Dark Colors</option>
-                      <option value="pastel">Show Pastel Colors</option>
-                  </select>
-              </div>
+                    <button id="sortByRating">Sort by rating and see all colors</button>
+                    <button id="sortByName">Sort by Name</button>
+                    <button id="sortByPrice">Sort by Price</button>
+                    <label for="sortByCategory">Sort by Category:</label>
+                    <select id="sortByCategory">
+                        <option value="light">Show Light Colors</option>
+                        <option value="dark">Show Dark Colors</option>
+                        <option value="pastel">Show Pastel Colors</option>
+                    </select>
+                </div>
             </div>    
             <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
@@ -106,18 +106,12 @@
                     
                     <!-- Payment Information -->
                     <div class="form-group">
-                      <label>Payment Option:</label>
-                      <div class="radio-buttons">
-                    <div>
-                        <input type="radio" id="paymentOptionCard" name="paymentOption" value="card">
-                        <label for="paymentOptionCard">Credit Card</label>
+                        <label for="payment">Payment:</label>
+                        <select id="payment">
+                            <option value="card">Card</option>
+                            <option value="invoice">Invoice</option>
+                        </select>
                     </div>
-                    <div>
-                        <input type="radio" id="paymentOptionInvoice" name="paymentOption" value="invoice">
-                        <label for="paymentOptionInvoice">Invoice</label>
-                    </div>
-                      </div>
-                  </div>
                     <div id="creditCardDetails" class="hidden">
                         <div class="form-group">
                             <label for="cardNumber">Card number:</label>
@@ -142,7 +136,7 @@
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="gdprCheck" required> 
-                        <label for="gdprCheck">I OKAY with GDPR!</label>
+                        <label for="gdprCheck">It's OKAY with GDPR!</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="newsletter" checked> 
