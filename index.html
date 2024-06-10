@@ -37,7 +37,7 @@
     <main>
         <!-- ******************* First Page ******************* -->
         <section id="home-section" class="home-section">
-            <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
+            <h1 class="welcome-title">Welcome to <br>SprayStation</h1>
         </section>
 
         <!-- ******************* Shop Spraycans ******************* -->
@@ -46,15 +46,16 @@
                 <h1>The SprayStation Shop</h1>
                 <p>Welcome, please feel free to buy your colors.</p>
                 <div class="sortButtons">
-                    <button id="sortByRating">Sort by rating and see all colors</button>
-                    <button id="sortByName">Sort by Name</button>
-                    <button id="sortByPrice">Sort by Price</button>
-                    <select id="sortByCategory">
-                        <option value="light">Light Colors</option>
-                        <option value="dark">Dark Colors</option>
-                        <option value="pastel">Pastel Colors</option>
-                    </select>
-                </div>
+                  <button id="sortByRating">Sort by rating and see all colors</button>
+                  <button id="sortByName">Sort by Name</button>
+                  <button id="sortByPrice">Sort by Price</button>
+                  <label for="sortByCategory">Sort by Category:</label>
+                  <select id="sortByCategory">
+                      <option value="light">Show Light Colors</option>
+                      <option value="dark">Show Dark Colors</option>
+                      <option value="pastel">Show Pastel Colors</option>
+                  </select>
+              </div>
             </div>    
             <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
         </section>
@@ -105,12 +106,18 @@
                     
                     <!-- Payment Information -->
                     <div class="form-group">
-                        <label>Payment Option:</label>
-                        <div class="radio-buttons">
-                            <label><input type="radio" name="paymentOption" value="card"> Credit Card</label>
-                            <label><input type="radio" name="paymentOption" value="invoice"> Invoice</label>
-                        </div>
+                      <label>Payment Option:</label>
+                      <div class="radio-buttons">
+                    <div>
+                        <input type="radio" id="paymentOptionCard" name="paymentOption" value="card">
+                        <label for="paymentOptionCard">Credit Card</label>
                     </div>
+                    <div>
+                        <input type="radio" id="paymentOptionInvoice" name="paymentOption" value="invoice">
+                        <label for="paymentOptionInvoice">Invoice</label>
+                    </div>
+                      </div>
+                  </div>
                     <div id="creditCardDetails" class="hidden">
                         <div class="form-group">
                             <label for="cardNumber">Card number:</label>
@@ -135,7 +142,7 @@
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="gdprCheck" required> 
-                        <label for="gdprCheck">It's OKAY with GDPR!</label>
+                        <label for="gdprCheck">I OKAY with GDPR!</label>
                     </div>
                     <div class="form-group">
                         <input type="checkbox" id="newsletter" checked> 
@@ -145,7 +152,7 @@
                     <!-- Form Buttons -->
                     <div class="buttons">
                         <button type="reset" id="resetForm">Cancel Order</button>
-                        <button type="submit" id="sendForm" disabled>Place Order</button>
+                        <button type="submit" id="sendForm">Place Order</button>
                     </div>
                 </form>
             </div>

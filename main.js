@@ -6,11 +6,55 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCart();
   addCartEventListener();
   startInactivityTimer();
+  
+
+  //-- Event listener för formulärsubmittet--//
+  const orderForm = document.querySelector('form');
+  if (orderForm) {
+    orderForm.addEventListener('submit', handleFormSubmit);
+
+    //--Event listeners för alla formulärfält--//
+    const formFields = orderForm.querySelectorAll('input[required], select[required], textarea[required]');
+    formFields.forEach(field => {
+      field.addEventListener('input', checkFormValidity);
+    });
+
+    //--Kontroll av initial formulärstatus--//
+    checkFormValidity();
+  }
+
 });
 
 //-- Väljare för huvudcontainrar --//
 const sprayCansContainer = document.querySelector('#sprayCansForSale');
 const cartContainer = document.querySelector('#cartSection');
+
+//Visar pop-up-meddelande
+function showPopup(message) {
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+  popup.textContent = message;
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.remove();
+  }, 3000); // Meddelandet försvinner efter 3 sekunder
+}
+
+// Funktion för att hantera formulärsubmitt
+function handleFormSubmit(event) {
+  event.preventDefault(); //--Stoppa standardformulärsubmitt
+  showPopup('Thanks for you order!!');
+  resetForm();
+}
+
+// --Formulärfältens giltighet--//
+function checkFormValidity() {
+  const orderForm = document.querySelector('form');
+  const submitButton = document.querySelector('#sendForm');
+  const isValid = orderForm.checkValidity();
+  submitButton.disabled = !isValid;
+}
 
 //--Hårdkodat sprayburkar/produkter--//
 const sprayCans = [
@@ -77,7 +121,7 @@ function sortByCategory(category) {
   filteredCans.forEach(can => {
     sprayCansContainer.innerHTML += `
       <article>
-        <h3>${can.name}</h3>
+        <h1>${can.name}</h1>
         <img src="${can.image.src}" alt="${can.image.alt}">
         <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
         <div>Amount: <span>${can.amount}</span></div>
@@ -180,7 +224,7 @@ function updateCart() {
         <article class="cart-item">
           <img src="${can.image.src}" alt="${can.image.alt}" class="cart-item-image">
           <div class="cart-item-details">
-            <h3>${can.name}</h3>
+            <h1>${can.name}</h1>
             <div>Price per unit: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
             <div>Amount: <span>${can.amount}</span></div>
             ${can.bulkDiscountApplied ? '<div>10% discount!</div>' : ''}
@@ -219,10 +263,10 @@ function updateCart() {
     cartContainer.innerHTML += `<div>Payment method: Invoice not able over 800 kr</div>`;
   } else {
     cartContainer.innerHTML += `
-      <div>Betalsätt:
+      <div>Payment:
         <select>
-          <option value="card">Kort</option>
-          <option value="invoice">Faktura</option>
+          <option value="card">Card</option>
+          <option value="invoice">Invoice</option>
         </select>
       </div>
     `;
@@ -285,7 +329,7 @@ function printSprayCans() {
   sprayCans.forEach(can => {
     sprayCansContainer.innerHTML += `
       <article>
-        <h3>${can.name}</h3>
+        <h1>${can.name}</h1>
         <img src="${can.image.src}" alt="${can.image.alt}">
         <div>Price: <span>${can.discountedPrice.toFixed(2)}</span> kr</div>
         <div>Amount: <span>${can.amount}</span></div>
