@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/FED23D-Munkshop/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="SprayStation">
+    <meta name="keywords" content="spraycans, cans, can, spray, color, spraycolor, spraystation">
+    <meta name="description" content="SprayStation: Din ultimata destination för sprayburkar. Upptäck ett brett utbud av färgglada sprayfärger och handla online. Perfekt för alla dina konst- och DIY-projekt.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>SprayStation</title>
+  <script type="module" crossorigin src="/FED23D-Munkshop/assets/index-cIA3N3ts.js"></script>
+  <link rel="stylesheet" crossorigin href="/FED23D-Munkshop/assets/index-2cJ15_Tn.css">
+</head>
+<body>
+    <!-- ******************* Header ******************* -->
+    <header>
+        <nav>
+            <div class="menu-popout">
+                <ul class="menu-container">
+                    <li><a class="menu-object" href="#">First page</a></li>
+                    <li><a class="menu-object" href="#spray-section">Products</a></li>
+                    <li><a class="menu-object" href="#cartSection">My shopping cart</a></li>
+                    <li><a class="menu-object" href="#contact-page">Contact</a></li>
+                </ul>
+            </div>
+            <div id="shopping-cart">
+                <button class="cart-button">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- ******************* Main Content ******************* -->
+    <main>
+        <!-- ******************* First Page ******************* -->
+        <section id="home-section" class="home-section">
+            <h3 class="welcome-title">Welcome to <br>SprayStation</h3>
+        </section>
+
+        <!-- ******************* Shop Spraycans ******************* -->
+        <section id="spray-section" class="spray-section">
+            <div id="frame-shop">
+                <h1>The SprayStation Shop</h1>
+                <p>Welcome, please feel free to buy your colors.</p>
+                <div class="sortButtons">
+                    <button id="sortByRating">Sort by rating and see all colors</button>
+                    <button id="sortByName">Sort by Name</button>
+                    <button id="sortByPrice">Sort by Price</button>
+                    <label for="sortByCategory">Sort by Category:</label>
+                    <select id="sortByCategory">
+                        <option value="light">Show Light Colors</option>
+                        <option value="dark">Show Dark Colors</option>
+                        <option value="pastel">Show Pastel Colors</option>
+                    </select>
+                </div>
+            </div>    
+            <div id="sprayCansForSale" class="sprayCans-for-sale"></div>
+        </section>
+
+        <!-- ******************* Shopping Cart ******************* -->
+        <section class="cart-section" id="cartSection">
+            <h1>Shoppingcart</h1>
+        </section>
+
+        <!-- ******************* Customer Details Form ******************* -->
+        <section class="customer-details" id="customers-details">
+            <div id="customerDetails">
+                <h2>Customer Details</h2>
+                <form>
+                    <!-- Personal Information -->
+                    <div class="form-group">
+                        <label for="firstName">First name:</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last name:</label>
+                        <input type="text" id="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipcode">Zip code:</label>
+                        <input type="number" id="zipcode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="doorCode">Door code:</label>
+                        <input type="text" id="doorCode">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Phone:</label>
+                        <input type="tel" id="mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <!-- Payment Information -->
+                    <div class="form-group">
+                        <label for="payment">Payment:</label>
+                        <select id="payment">
+                            <option value="card">Card</option>
+                            <option value="invoice">Invoice</option>
+                        </select>
+                    </div>
+                    <div id="creditCardDetails" class="hidden">
+                        <div class="form-group">
+                            <label for="cardNumber">Card number:</label>
+                            <input type="number" id="cardNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date (MM/YY):</label>
+                            <input type="text" id="expiryDate">
+                        </div>
+                    </div>
+                    <div id="invoiceDetails" class="hidden">
+                        <div class="form-group">
+                            <label for="ssn">Social Security Number:</label>
+                            <input type="text" id="ssn">
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Information -->
+                    <div class="form-group">
+                        <label for="discountCode">Discount code:</label>
+                        <input id="discountCode" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="gdprCheck" required> 
+                        <label for="gdprCheck">It's OKAY with GDPR!</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="newsletter" checked> 
+                        <label for="newsletter">I want news from Spray Station!</label>
+                    </div>
+                    
+                    <!-- Form Buttons -->
+                    <div class="buttons">
+                        <button type="reset" id="resetForm">Cancel Order</button>
+                        <button type="submit" id="sendForm">Place Order</button>
+                    </div>
+                </form>
+            </div>
+        </section>        
+
+        <!-- ******************* Contact ******************* -->
+        <section id="contact-page">
+            <div id="contact-content">
+                <div class="contact-box">
+                    <h1>Contact us</h1>
+                    <p>Having any doubts? Want to ask us something? Please feel free to contact us anytime soon! We're trying to get back to you within 48 hours.</p>
+                    <div class="contact-info">
+                        <p>SprayStation</p>
+                        <p>Bridgeroad 10</p>
+                        <p>182 392 New York</p>
+                        <p><a href="mailto:contact@spraystation.com">contact@spraystation.com</a></p>
+                        <p>056/876 543 21</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ******************* Footer ******************* -->
+    <footer id="footer">
+        <p>- SprayStation 2024 -</p>
+        <p>&copy; Marcus Yttermyr</p>
+    </footer>
+
+    <!-- ******************* Scripts ******************* -->
+</body>
+</html>
