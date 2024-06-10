@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
 
 export default ({
-    base: '/deploy/'
+    base: '/FED23D-Munkshop/'
 });
