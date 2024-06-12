@@ -58,15 +58,15 @@ function checkFormValidity() {
 
 //--Hårdkodat sprayburkar/produkter--//
 const sprayCans = [
-  { id: 1, name: 'CanCan in Sunset', price: 100, image: {src:'./assets/orange.jpg', alt: 'Spray Can 1 Image'}, amount: 0, stars: 4, category: 'light' },
-  { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: {src: 'yellow.jpg', alt: 'Spray Can 2 Image'}, amount: 0, stars: 3.5, category: 'light' },
-  { id: 3, name: 'Red Rush ', price: 140, image: {src: 'assets/red.jpg', alt: 'Spray Can 3 Image' }, amount: 0, stars: 5, category: 'light' },
-  { id: 4, name: 'Pink that Party', price: 110, image: { src: 'assets/pink.jpg', alt: 'Spray Can 4 Image' }, amount: 0, stars: 4.5, category: 'pastel' },
-  { id: 5, name: 'Bloom Fusia, bloom', price: 110, image: { src: 'assets/fusia.jpg', alt: 'Spray Can 5 Image' }, amount: 0, stars: 3, category: 'light' },
-  { id: 6, name: 'Cast a spell', price: 100, image: { src: 'assets/chrome.jpg', alt: 'Spray Can 6 Image' }, amount: 0, stars: 4, category: 'light' },
-  { id: 7, name: 'Blue Lagoon', price: 140, image: { src: 'assets/blue.jpg', alt: 'Spray Can 7 Image' }, amount: 0, stars: 4.5, category: 'light' },
-  { id: 8, name: 'Blue Velvet', price: 130, image: { src: 'assets/darkblue.jpg', alt: 'Spray Can 8 Image' }, amount: 0, stars: 3.5, category: 'dark' },
-  { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0, stars: 4, category: 'dark' },
+  { id: 1, name: 'CanCan in Sunset', price: 100, image: {src:'./assets/pictures/orange.jpg', alt: 'Spray Can 1 Image'}, amount: 0, stars: 4, category: 'light' },
+  { id: 2, name: 'Yellow Mr. Sunshine', price: 120, image: {src: 'assets/pictures/yellow.jpg', alt: 'Spray Can 2 Image'}, amount: 0, stars: 3.5, category: 'light' },
+  { id: 3, name: 'Red Rush ', price: 140, image: {src: 'assets/pictures/red.jpg', alt: 'Spray Can 3 Image' }, amount: 0, stars: 5, category: 'light' },
+  { id: 4, name: 'Pink that Party', price: 110, image: { src: 'assets/pictures/pink.jpg', alt: 'Spray Can 4 Image' }, amount: 0, stars: 4.5, category: 'pastel' },
+  { id: 5, name: 'Bloom Fusia, bloom', price: 110, image: { src: 'assets/pictures/fusia.jpg', alt: 'Spray Can 5 Image' }, amount: 0, stars: 3, category: 'light' },
+  { id: 6, name: 'Cast a spell', price: 100, image: { src: 'assets/pictures/chrome.jpg', alt: 'Spray Can 6 Image' }, amount: 0, stars: 4, category: 'light' },
+  { id: 7, name: 'Blue Lagoon', price: 140, image: { src: 'assets/pictures/blue.jpg', alt: 'Spray Can 7 Image' }, amount: 0, stars: 4.5, category: 'light' },
+  { id: 8, name: 'Blue Velvet', price: 130, image: { src: 'assets/pictures/darkblue.jpg', alt: 'Spray Can 8 Image' }, amount: 0, stars: 3.5, category: 'dark' },
+  { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/pictures/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0, stars: 4, category: 'dark' },
 ];
 
 //--------------------------------------------------------------------//
