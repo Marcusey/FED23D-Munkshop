@@ -67,7 +67,7 @@ const sprayCans = [
   { id: 7, name: 'Blue Lagoon', price: 140, image: { src: 'assets/pictures/blue.jpg', alt: 'Spray Can 7 Image' }, amount: 0, stars: 4.5, category: 'light' },
   { id: 8, name: 'Blue Velvet', price: 130, image: { src: 'assets/pictures/darkblue.jpg', alt: 'Spray Can 8 Image' }, amount: 0, stars: 3.5, category: 'dark' },
   { id: 9, name: 'Greener than grass', price: 140, image: { src: 'assets/pictures/green.jpg', alt: 'Spray Can 9 Image' }, amount: 0, stars: 4, category: 'dark' },
-  { id: 10, name: 'Green Moon', price: 160, image: { src: 'assets/pictures/lightgreen.webp', alt: 'Spray Can 10 Image' }, amount: 0, stars: 4, category: 'pastel' },
+  { id: 10, name: 'Green Moon', price: 160, image: { src: 'assets/pictures/lightgreen.jpg', alt: 'Spray Can 10 Image' }, amount: 0, stars: 4, category: 'pastel' },
 ];
 
 //--------------------------------------------------------------------//
